@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locket Gold Chính Chủ - Nâng Cấp Tự Động & Hướng Dẫn Kích Hoạt</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            50: '#fffdf5',
+                            100: '#fef7e0',
+                            200: '#fdeab8',
+                            300: '#fbd785',
+                            400: '#f7bf4f',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                            glow: '#ffbe1a',
+                        },
+                        dark: {
+                            950: '#07090e',
+                            900: '#0e1118',
+                            850: '#131722',
+                            800: '#191f2d',
+                            700: '#232b3e',
+                            600: '#343f58',
+                        }
+                    },
+                    backgroundImage: {
+                        'gold-gradient': 'linear-gradient(135deg, #fbd785 0%, #f7bf4f 50%, #d97706 100%)',
+                        'gold-shine-gradient': 'linear-gradient(135deg, #FFF6D1 0%, #F5BE38 50%, #BF7808 100%)',
+                        'dark-card': 'linear-gradient(180deg, rgba(25, 31, 45, 0.75) 0%, rgba(14, 17, 24, 0.9) 100%)',
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 2.5s infinite ease-in-out',
+                        'badge-bounce': 'badgeBounce 2s infinite ease-in-out',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(245, 158, 11, 0.25)' },
+                            '50%': { boxShadow: '0 0 30px rgba(245, 158, 11, 0.6)' },
+                        },
+                        badgeBounce: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-4px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #07090e; }
+        ::-webkit-scrollbar-thumb { background: #232b3e; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
+        .text-gold-shine {
+            background: linear-gradient(135deg, #FFF6D1 0%, #F5BE38 50%, #BF7808 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border-glow {
+            border: 1px solid rgba(245, 190, 56, 0.35);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.12);
+        }
+        .gold-border-glow:hover {
+            border-color: rgba(245, 190, 56, 0.7);
+            box-shadow: 0 0 35px rgba(245, 158, 11, 0.25);
+        }
+        .step-badge {
+            background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+        }
+    </style>
+</head>
+<body class="bg-dark-950 text-slate-200 antialiased selection:bg-gold-500 selection:text-black min-h-screen flex flex-col justify-between">
+
+    <!-- THANH BANNER CTV TRÊN CÙNG (DỄ THẤY 100%) -->
+    <div id="ctvTopBanner" class="bg-gradient-to-r from-amber-500 via-gold-400 to-amber-600 text-black py-2.5 px-4 text-xs sm:text-sm font-extrabold shadow-md flex items-center justify-between transition-all">
+        <div class="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div class="flex items-center gap-2 text-center sm:text-left">
+                <span class="px-2 py-0.5 rounded-full bg-black text-gold-400 text-[11px] font-black uppercase tracking-wider">CỔNG ĐẠI LÝ</span>
+                <span>Dành riêng cho Cộng Tác Viên & Đại Lý — <b>Chiết khấu giảm ngay 50%</b> tất cả các gói!</span>
+            </div>
+            <div id="ctvTopActionArea">
+                <button onclick="openCtvModal()" class="px-3.5 py-1.5 rounded-lg bg-black text-gold-300 hover:text-white font-black text-xs shadow hover:scale-105 transition-all flex items-center gap-1.5 shrink-0">
+                    <i class="fa-solid fa-key"></i>
+                    <span>Đăng Nhập Cổng CTV</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-dark-950/85 border-b border-dark-700/60 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-gold-gradient flex items-center justify-center shadow-lg shadow-gold-500/25 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-crown text-black text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1.5">
+                        LOCKET <span class="text-gold-shine">GOLD</span>
+                    </span>
+                    <span class="text-[11px] block text-gold-400 font-semibold tracking-wide uppercase">Cài DNS & Kích Hoạt Nhanh</span>
+                </div>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-300">
+                <a href="#huong-dan" class="text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-mobile-screen-button text-xs"></i>
+                    <span>Hướng dẫn cài DNS</span>
+                </a>
+                <a href="#pricing" class="hover:text-gold-400 transition-colors">Bảng giá</a>
+                <a href="#features" class="hover:text-gold-400 transition-colors">Đặc quyền</a>
+                <a href="#order" class="hover:text-gold-400 transition-colors">Đặt hàng ngay</a>
+            </nav>
+
+            <!-- Quick Contacts & Nút Cổng CTV trên Navbar -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- NÚT CỔNG CTV NỔI BẬT TRÊN HEADER -->
+                <div id="ctvNavSlot">
+                    <button onclick="openCtvModal()" class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-extrabold bg-gradient-to-r from-amber-500/20 to-gold-500/20 border-2 border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-black shadow-lg shadow-gold-500/20 transition-all">
+                        <i class="fa-solid fa-user-lock"></i>
+                        <span>Cổng CTV (-50%)</span>
+                    </button>
+                </div>
+
+                <a href="https://zalo.me/0829047847" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-dark-850 border border-dark-700 text-slate-200 hover:border-gold-500 hover:text-gold-400 transition-all shadow-sm">
+                    <i class="fa-solid fa-comment-dots text-blue-400"></i>
+                    <span class="hidden sm:inline">Zalo:</span>
+                    <span>0829.047.847</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- NÚT NỔI CTV GÓC DƯỚI MÀN HÌNH (FLOATING BUTTON) -->
+    <div id="floatingCtvBtn" class="fixed bottom-6 left-6 z-40">
+        <button onclick="openCtvModal()" class="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-gold-gradient text-black font-black text-xs sm:text-sm shadow-2xl shadow-gold-500/40 hover:scale-105 active:scale-95 transition-all border-2 border-white/20">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
+            <i class="fa-solid fa-user-shield text-base"></i>
+            <span>CỔNG CTV GIẢM 50%</span>
+        </button>
+    </div>
+
+    <!-- BANNER BÁO ĐANG TRONG CHẾ ĐỘ CTV ĐĂNG NHẬP -->
+    <div id="ctvActiveBanner" class="hidden bg-emerald-950/80 border-b border-emerald-500/40 py-3 px-4 text-emerald-300">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm font-bold">
+            <div class="flex items-center gap-2.5">
+                <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Đang đăng nhập chế độ CTV: <strong id="ctvLoggedName" class="text-white text-base">Nguyễn Trung Trực</strong></span>
+                <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-200 border border-emerald-500/30 text-[11px]">ĐÃ KÍCH HOẠT GIÁ CTV (-50%)</span>
+            </div>
+            <button onclick="logoutCtv()" class="px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500 hover:text-white border border-red-500/40 text-red-300 text-xs font-black transition-all">
+                <i class="fa-solid fa-right-from-bracket mr-1"></i> Đăng xuất CTV
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold-500/10 rounded-full blur-[130px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs sm:text-sm font-semibold mb-6 animate-pulse-glow">
+                        <i class="fa-solid fa-shield-check text-gold-400"></i>
+                        <span>Chính Chủ 100% • Không Cần Mật Khẩu • Kích Hoạt Trong 3 Phút</span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+                        Nâng Cấp Locket Gold & <br/>
+                        <span class="text-gold-shine">Mở Khóa Toàn Bộ Filter</span>
+                    </h1>
+
+                    <!-- Description -->
+                    <p class="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                        Sở hữu biểu tượng vương miện Gold, ghim bạn thân, quay video siêu dài và bộ lọc hiệu ứng độc quyền. Cài đặt DNS nhanh chóng trên iPhone và kích hoạt chuẩn quy trình.
+                    </p>
+
+                    <!-- Fast Actions -->
+                    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="#huong-dan" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-gold-gradient text-black font-extrabold text-sm sm:text-base shadow-xl shadow-gold-500/25 hover:scale-[1.02] transition-transform flex items-center justify-center gap-2.5">
+                            <i class="fa-solid fa-gear text-sm"></i>
+                            <span>Xem Hướng Dẫn Cài DNS Trước</span>
+                        </a>
+                        <a href="#order" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-dark-850 border border-dark-700 text-slate-200 font-bold hover:border-gold-500/60 hover:text-white transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
+                            <span>Điền Đơn Đặt Hàng (Từ 15k)</span>
+                            <i class="fa-solid fa-chevron-right text-xs text-gold-400"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HƯỚNG DẪN KÍCH HOẠT & CÀI ĐẶT DNS (MỤC QUAN TRỌNG) -->
+        <section id="huong-dan" class="py-16 bg-dark-900/80 border-y border-dark-800 relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Title -->
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-red-500/15 text-red-400 border border-red-500/30 mb-3 animate-badge-bounce">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span>Yêu cầu bắt buộc số 1</span>
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white">HƯỚNG DẪN KÍCH HOẠT LOCKET GOLD</h2>
+                    <p class="mt-3 text-slate-300 text-sm sm:text-base">
+                        Khách cần <b class="text-gold-400">cài DNS trước</b> theo hướng dẫn bên dưới. Bước này bắt buộc phải làm trước; nếu không cài DNS, kích hoạt xong cũng không có tác dụng!
+                    </p>
+                </div>
+
+                <!-- BƯỚC 1: CÀI ĐẶT DNS CHO IPHONE -->
+                <div class="mb-10 rounded-3xl p-6 sm:p-8 bg-dark-card border-2 border-gold-500/30 shadow-2xl relative overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-48 h-48 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="flex items-center gap-3 pb-6 border-b border-dark-700/80">
+                        <div class="w-12 h-12 rounded-2xl bg-gold-gradient text-black flex items-center justify-center text-xl font-black shrink-0 shadow-md">
+                            <i class="fa-brands fa-apple"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-2xl font-black text-white flex items-center gap-2">
+                                <span>📱 HƯỚNG DẪN CÀI DNS CHO IPHONE</span>
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Thực hiện chính xác 4 thao tác cực nhanh sau:</p>
+                        </div>
+                    </div>
+
+                    <!-- 4 Sub-steps of DNS -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
+                        <!-- Step 1.1 -->
+                        <div class="p-5 rounded-2xl bg-dark-850/90 border border-dark-700 hover:border-gold-500/40 transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="w-8 h-8 rounded-xl step-badge text-black font-extrabold text-sm flex items-center justify-center">1</span>
+                                    <span class="text-[11px] font-bold text-gold-400 uppercase tracking-wider bg-gold-500/10 px-2 py-0.5 rounded-md">Trình duyệt Safari</span>
+                                </div>
+                                <h4 class="font-bold text-white text-base mb-1.5">Tải hồ sơ DNS</h4>
+                                <p class="text-sm text-slate-300 leading-relaxed">
+                                    Mở trình duyệt <b>Safari</b> trên iPhone, truy cập địa chỉ <code class="bg-dark-950 px-2 py-0.5 rounded text-gold-300 font-mono text-xs border border-dark-700">https://dns.coz.vn</code> và bấm <b>Cho phép</b> khi máy hỏi tải hồ sơ.
+                                </p>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-dark-700/60 flex items-center gap-2">
+                                <a href="https://dns.coz.vn" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gold-gradient text-black text-xs font-black hover:opacity-90">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                    <span>Mở trang dns.coz.vn</span>
+                                </a>
+                                <button onclick="copyToClipboard('https://dns.coz.vn', 'Đã sao chép link DNS!')" 
+                                        class="px-2.5 py-1.5 rounded-lg bg-dark-700 text-slate-200 text-xs font-semibold hover:text-gold-400 hover:bg-dark-600 transition-all">
+                                    <i class="fa-regular fa-copy"></i> Copy Link
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 1.2 -->
+                        <div class="p-5 rounded-2xl bg-dark-850/90 border border-dark-700 hover:border-gold-500/40 transition-all">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="w-8 h-8 rounded-xl step-badge text-black font-extrabold text-sm flex items-center justify-center">2</span>
+                                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider bg-dark-750 px-2 py-0.5 rounded-md">Cài đặt máy</span>
+                            </div>
+                            <h4 class="font-bold text-white text-base mb-1.5">Cài đặt hồ sơ vừa tải</h4>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Vào <b>Cài đặt iPhone</b> → bấm vào mục <b>"Đã tải về hồ sơ"</b> (ngay dưới tên iCloud) → bấm <b>Cài đặt</b> → nhập mật khẩu mở khoá iPhone → chọn <b>Cài đặt</b>.
+                            </p>
+                        </div>
+
+                        <!-- Step 1.3 -->
+                        <div class="p-5 rounded-2xl bg-dark-850/90 border border-dark-700 hover:border-gold-500/40 transition-all">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="w-8 h-8 rounded-xl step-badge text-black font-extrabold text-sm flex items-center justify-center">3</span>
+                                <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider bg-amber-500/10 px-2 py-0.5 rounded-md">Tin cậy chứng chỉ</span>
+                            </div>
+                            <h4 class="font-bold text-white text-base mb-1.5">Bật chứng chỉ LocketGold</h4>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Vào <b>Cài đặt</b> → <b>Cài đặt chung</b> → <b>Giới thiệu</b> → kéo xuống cuối cùng chọn <b>Cài đặt tin cậy chứng chỉ</b> → Bật công tắc xanh mục <b>LocketGold</b> rồi nhấn <b>Tiếp tục</b>.
+                            </p>
+                        </div>
+
+                        <!-- Step 1.4 -->
+                        <div class="p-5 rounded-2xl bg-dark-850/90 border border-dark-700 hover:border-gold-500/40 transition-all">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="w-8 h-8 rounded-xl step-badge text-black font-extrabold text-sm flex items-center justify-center">4</span>
+                                <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider bg-emerald-500/10 px-2 py-0.5 rounded-md">Khởi động lại Locket</span>
+                            </div>
+                            <h4 class="font-bold text-white text-base mb-1.5">Kiểm tra kết quả</h4>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Vuốt từ dưới màn hình lên để vào đa nhiệm, <b>tắt hoàn toàn ứng dụng Locket</b> rồi mở lại Locket để kiểm tra trạng thái Gold.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BƯỚC 2: QUY TRÌNH KÍCH HOẠT GOLD TỔNG QUAN -->
+                <div class="rounded-3xl p-6 sm:p-8 bg-dark-card border border-dark-700 shadow-xl mb-10">
+                    <div class="flex items-center gap-3 pb-5 border-b border-dark-700/80 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-lg font-bold shrink-0">
+                            <i class="fa-solid fa-bolt-lightning"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-extrabold text-white">⚡ QUY TRÌNH KÍCH HOẠT GOLD CHUẨN XÁC</h3>
+                            <p class="text-xs sm:text-sm text-slate-400">Không cần mật khẩu hay bất kỳ thông tin nhạy cảm nào</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 text-sm sm:text-base text-slate-200">
+                        <div class="flex items-start gap-3.5 p-3.5 rounded-xl bg-dark-850 border border-dark-700/70">
+                            <div class="w-7 h-7 rounded-lg bg-gold-500/20 text-gold-400 font-black flex items-center justify-center text-xs shrink-0 mt-0.5">1</div>
+                            <div>
+                                <strong class="text-white">Khách cài DNS trước:</strong> Hướng dẫn khách cài DNS theo 4 bước phía trên. Bước này bắt buộc làm trước vì không có DNS thì kích hoạt xong vẫn không có tác dụng.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3.5 p-3.5 rounded-xl bg-dark-850 border border-dark-700/70">
+                            <div class="w-7 h-7 rounded-lg bg-gold-500/20 text-gold-400 font-black flex items-center justify-center text-xs shrink-0 mt-0.5">2</div>
+                            <div>
+                                <strong class="text-white">Gửi Username hoặc Link Locket:</strong> Khách chỉ cần gửi username hoặc đường link kết bạn Locket. Tuyệt đối <b>không cần mật khẩu</b> hay mã OTP.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3.5 p-3.5 rounded-xl bg-dark-850 border border-dark-700/70">
+                            <div class="w-7 h-7 rounded-lg bg-gold-500/20 text-gold-400 font-black flex items-center justify-center text-xs shrink-0 mt-0.5">3</div>
+                            <div>
+                                <strong class="text-white">CTV tra cứu & kiểm tra:</strong> CTV tiến hành kiểm tra đúng tên và username tài khoản Locket của bạn trên hệ thống trước khi thao tác.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3.5 p-3.5 rounded-xl bg-dark-850 border border-dark-700/70">
+                            <div class="w-7 h-7 rounded-lg bg-gold-500/20 text-gold-400 font-black flex items-center justify-center text-xs shrink-0 mt-0.5">4</div>
+                            <div>
+                                <strong class="text-white">Hệ thống kiểm tra & Kích hoạt:</strong> Hệ thống kiểm tra trạng thái Gold. Nếu chưa có, CTV bấm Kích hoạt Gold và lưu tài khoản.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3.5 p-3.5 rounded-xl bg-dark-850 border border-dark-700/70">
+                            <div class="w-7 h-7 rounded-lg bg-gold-500/20 text-gold-400 font-black flex items-center justify-center text-xs shrink-0 mt-0.5">5</div>
+                            <div>
+                                <strong class="text-white">Hoàn tất:</strong> Khi nhận thông báo kích hoạt Gold thành công, bạn chỉ cần <b>tắt hoàn toàn Locket khỏi đa nhiệm rồi mở lại</b> là tận hưởng đầy đủ tính năng Gold!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CẢNH BÁO LƯU Ý QUAN TRỌNG (HIGHLIGHT VIỀN ĐỎ / VÀNG RỰC RỠ) -->
+                <div class="p-6 rounded-2xl bg-gradient-to-r from-red-950/60 via-dark-900 to-amber-950/60 border-2 border-red-500/80 shadow-2xl shadow-red-950/50 flex flex-col sm:flex-row items-center gap-5">
+                    <div class="w-14 h-14 rounded-2xl bg-red-500/20 border border-red-500/50 text-red-400 flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-solid fa-triangle-exclamation animate-pulse"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-base sm:text-lg font-black text-red-400 uppercase tracking-wide flex items-center gap-2">
+                            <span>⚠️ LƯU Ý SỐNG CÒN QUAN TRỌNG:</span>
+                        </h4>
+                        <p class="text-sm sm:text-base text-slate-200 mt-1 leading-relaxed">
+                            Tuyệt đối <b>KHÔNG tắt hoặc xóa cấu hình DNS</b> và <b>KHÔNG tắt tin cậy chứng chỉ LocketGold</b> trong cài đặt iPhone. Nếu tắt hoặc xóa, Gold có thể bị rớt và không còn hoạt động được nữa!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gold-500/10 text-gold-400 border border-gold-500/20 mb-3">Giá Siêu Học Sinh - Sinh Viên</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Bảng Giá Dịch Vụ Mới Nhất</h2>
+                    <p class="mt-3 text-slate-400 text-sm sm:text-base">Kích hoạt nhanh trong 3 phút sau khi cài DNS • Bảo hành uy tín</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Gói 1: Unlock Filter (15.000đ) -->
+                    <div class="rounded-3xl p-8 bg-dark-card border border-dark-700/80 flex flex-col justify-between hover:border-gold-500/50 transition-all hover:-translate-y-1">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Bộ Lọc Hiệu Ứng</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-dark-800 text-gold-400 border border-dark-700">Vĩnh Viễn</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-white mt-2">Gói Unlock Filter</h3>
+                            <div class="mt-4 mb-6">
+                                <span id="strikePriceFilter" class="text-xs text-slate-500 line-through">45.000đ</span>
+                                <div class="flex items-baseline gap-1">
+                                    <span id="cardPriceFilter" class="text-4xl font-extrabold text-white">15.000</span>
+                                    <span class="text-sm font-semibold text-gold-400">VNĐ / Lần</span>
+                                </div>
+                                <span id="badgeCtvFilter" class="hidden inline-block mt-1 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">Giá CTV (-50%)</span>
+                            </div>
+
+                            <ul class="space-y-3.5 text-sm text-slate-300 border-t border-dark-700 pt-5">
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-wand-magic-sparkles text-gold-400 text-sm"></i>
+                                    <span>Mở khoá <b>toàn bộ bộ lọc & filter</b> độc quyền</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-infinity text-gold-400 text-sm"></i>
+                                    <span>Sở hữu và áp dụng <b>vĩnh viễn</b> trên tài khoản</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-shield-halved text-gold-400 text-sm"></i>
+                                    <span>Chính chủ tài khoản, <b>không cần mật khẩu</b></span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-bolt text-gold-400 text-sm"></i>
+                                    <span>Kích hoạt tức thì trong 2-3 phút sau khi cài DNS</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button onclick="quickChoose('filter')" class="mt-8 w-full py-3.5 rounded-xl bg-dark-850 hover:bg-gold-500 hover:text-black text-slate-200 font-extrabold text-sm border border-dark-700 hover:border-transparent transition-all">
+                            Chọn Gói Unlock Filter (15k)
+                        </button>
+                    </div>
+
+                    <!-- Gói 2: Locket Gold 1 Năm (40.000đ) -->
+                    <div class="relative rounded-3xl p-8 bg-gradient-to-b from-dark-850 to-dark-900 gold-border-glow flex flex-col justify-between hover:-translate-y-1 transition-all">
+                        <div class="absolute -top-3.5 right-6 bg-gold-gradient text-black text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
+                            Khuyên Dùng • Bán Chạy Nhất
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs uppercase font-extrabold text-gold-400 tracking-wider">Trọn Gói VIP</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-gold-500/20 text-gold-300 border border-gold-500/30">12 Tháng</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-white mt-2">Locket Gold 1 Năm</h3>
+                            <div class="mt-4 mb-6">
+                                <span id="strikePriceGold" class="text-xs text-slate-500 line-through">120.000đ</span>
+                                <div class="flex items-baseline gap-1">
+                                    <span id="cardPriceGold" class="text-4xl font-black text-gold-shine">40.000</span>
+                                    <span class="text-sm font-semibold text-gold-400">VNĐ / Năm</span>
+                                </div>
+                                <span id="badgeCtvGold" class="hidden inline-block mt-1 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">Giá CTV (-50%)</span>
+                            </div>
+
+                            <ul class="space-y-3.5 text-sm text-slate-200 border-t border-dark-700/80 pt-5">
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-crown text-gold-400 text-sm"></i>
+                                    <span><b>Huy hiệu vương miện Gold</b> danh giá bên cạnh ảnh</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-video text-gold-400 text-sm"></i>
+                                    <span>Mở khoá <b>quay video siêu dài</b> không lo bị ngắt</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-thumbtack text-gold-400 text-sm"></i>
+                                    <span>Tính năng <b>ghim bạn thân</b> nổi bật ở đầu widget</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-cloud-arrow-down text-gold-400 text-sm"></i>
+                                    <span>Tải ảnh & video <b>chất lượng gốc sắc nét</b></span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-shield-check text-gold-400 text-sm"></i>
+                                    <span>Chính chủ an toàn • <b>Bảo hành uy tín trọn 1 năm</b></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button onclick="quickChoose('gold')" class="mt-8 w-full py-3.5 rounded-xl bg-gold-gradient text-black font-extrabold text-sm shadow-lg shadow-gold-500/20 hover:scale-[1.02] transition-transform">
+                            Chọn Gói Gold 1 Năm (40k)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Combo Banner -->
+                <div class="mt-8 max-w-4xl mx-auto p-4 sm:p-5 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3 text-center sm:text-left">
+                        <div class="w-11 h-11 rounded-xl bg-gold-gradient text-black flex items-center justify-center shrink-0 text-xl font-bold">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm sm:text-base font-extrabold text-white">Mua Combo Cả 2: Locket Gold 1 Năm + Unlock Toàn Bộ Filter</p>
+                            <p class="text-xs text-slate-400">Trọn vẹn tất cả tính năng vip nhất chỉ với <b id="comboPriceText" class="text-gold-400 text-sm">55.000 VNĐ</b></p>
+                        </div>
+                    </div>
+                    <button onclick="quickChoose('both')" class="px-6 py-2.5 rounded-xl bg-gold-gradient text-black text-xs sm:text-sm font-black shrink-0 hover:scale-105 transition-transform shadow-md">
+                        Chọn Cả 2 Gói (<span id="comboBtnPrice">55k</span>)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Overview -->
+        <section id="features" class="py-16 bg-dark-900/40 border-y border-dark-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-xs uppercase font-extrabold tracking-widest text-gold-400 mb-2">Đặc quyền VIP</h2>
+                    <p class="text-2xl sm:text-3xl font-extrabold text-white">Vì Sao Mọi Người Đều Nâng Cấp?</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-6 rounded-2xl bg-dark-card border border-dark-700/60 hover:border-gold-500/40 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 text-xl mb-4">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white mb-2">Huy Hiệu Gold</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Khẳng định phong cách riêng với biểu tượng vương miện lấp lánh bên cạnh avatar.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-dark-card border border-dark-700/60 hover:border-gold-500/40 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 text-xl mb-4">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white mb-2">Quay Video Dài</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Thoải mái quay video dài hơn mà không bị giới hạn vài giây ngắn ngủi như bản thường.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-dark-card border border-dark-700/60 hover:border-gold-500/40 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 text-xl mb-4">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white mb-2">Full Bộ Lọc Filter</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Mở khóa toàn bộ màu sắc, hiệu ứng nghệ thuật độc quyền chỉ có trên bản Gold.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-dark-card border border-dark-700/60 hover:border-gold-500/40 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 text-xl mb-4">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white mb-2">Bảo Mật 100%</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Chỉ cần gửi Link/Username, không đưa mật khẩu hay thông tin nhạy cảm.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Form Section -->
+        <section id="order" class="py-20 relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="p-6 sm:p-10 rounded-3xl bg-dark-card border border-dark-700 shadow-2xl relative">
+                    <div class="text-center max-w-lg mx-auto mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mx-auto mb-3">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Điền Thông Tin Kích Hoạt</h2>
+                        <p class="text-sm text-slate-400 mt-2">Vui lòng đảm bảo bạn đã cài DNS xong trước khi tạo mã thanh toán.</p>
+                    </div>
+
+                    <form id="orderForm" onsubmit="handleOrderSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <!-- Họ tên khách hàng -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                                    Tên của bạn <span class="text-gold-400">*</span>
+                                </label>
+                                <input type="text" id="customerName" required placeholder="Ví dụ: Hoàng Long"
+                                    class="w-full px-4 py-3 rounded-xl bg-dark-800 border border-dark-700 text-white placeholder-slate-500 focus:outline-none focus:border-gold-500 transition-colors">
+                            </div>
+
+                            <!-- Số điện thoại / Zalo -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                                    Số điện thoại / Zalo liên hệ <span class="text-gold-400">*</span>
+                                </label>
+                                <input type="tel" id="customerPhone" required placeholder="Ví dụ: 0912345678"
+                                    class="w-full px-4 py-3 rounded-xl bg-dark-800 border border-dark-700 text-white placeholder-slate-500 focus:outline-none focus:border-gold-500 transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Link hoặc Username Locket -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                                Link tài khoản hoặc Username Locket <span class="text-gold-400">*</span>
+                            </label>
+                            <input type="text" id="locketUsername" required placeholder="https://locket.cam/username hoặc @username"
+                                class="w-full px-4 py-3 rounded-xl bg-dark-800 border border-dark-700 text-white placeholder-slate-500 focus:outline-none focus:border-gold-500 transition-colors">
+                            <p class="text-[12px] text-slate-400 mt-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-circle-info text-gold-400"></i>
+                                <span>Chỉ cần link hoặc username, <b>tuyệt đối không bao giờ cần mật khẩu</b>.</span>
+                            </p>
+                        </div>
+
+                        <!-- Lựa chọn gói dịch vụ -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2.5">
+                                Chọn Gói Dịch Vụ <span class="text-gold-400">*</span>
+                            </label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Option Filter -->
+                                <label class="relative flex items-center p-4 rounded-2xl bg-dark-800/80 border border-dark-700 cursor-pointer hover:border-gold-500/50 transition-all select-none">
+                                    <input type="checkbox" id="pkgFilter" onchange="calculateOrderTotal()" class="w-5 h-5 rounded accent-gold-500 mr-3 cursor-pointer">
+                                    <div class="flex-grow">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm font-bold text-white">Unlock Toàn Bộ Filter</span>
+                                            <span id="labelPriceFilter" class="text-sm font-black text-gold-400">15.000đ</span>
+                                        </div>
+                                        <span class="text-xs text-slate-400 block mt-0.5">Sở hữu vĩnh viễn trên nick</span>
+                                    </div>
+                                </label>
+
+                                <!-- Option Gold -->
+                                <label class="relative flex items-center p-4 rounded-2xl bg-dark-800/80 border border-dark-700 cursor-pointer hover:border-gold-500/50 transition-all select-none">
+                                    <input type="checkbox" id="pkgGold" onchange="calculateOrderTotal()" class="w-5 h-5 rounded accent-gold-500 mr-3 cursor-pointer" checked>
+                                    <div class="flex-grow">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm font-bold text-white">Locket Gold (1 Năm)</span>
+                                            <span id="labelPriceGold" class="text-sm font-black text-gold-400">40.000đ</span>
+                                        </div>
+                                        <span class="text-xs text-slate-400 block mt-0.5">Huy hiệu Gold, video dài, ghim bạn</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Xác nhận đã cài DNS -->
+                        <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30">
+                            <label class="flex items-start gap-3 cursor-pointer select-none">
+                                <input type="checkbox" id="confirmDns" required class="w-5 h-5 rounded accent-gold-500 mt-0.5 cursor-pointer">
+                                <span class="text-xs sm:text-sm text-slate-200">
+                                    Tôi xác nhận <b>đã hoàn thành cài đặt DNS (https://dns.coz.vn)</b> và bật tin cậy chứng chỉ trên máy trước khi yêu cầu kích hoạt.
+                                </span>
+                            </label>
+                        </div>
+
+                        <!-- Tóm tắt thanh toán -->
+                        <div class="p-4 rounded-2xl bg-dark-900 border border-dark-700/80 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Tổng tiền thanh toán:</span>
+                                <span id="summarySelectedPackages" class="text-xs font-semibold text-slate-300">Gói đã chọn: Locket Gold 1 Năm</span>
+                            </div>
+                            <div class="text-right">
+                                <span id="displayOrderTotal" class="text-2xl sm:text-3xl font-black text-gold-shine">40.000đ</span>
+                            </div>
+                        </div>
+
+                        <!-- Nút gửi đơn -->
+                        <button type="submit" class="w-full py-4 rounded-2xl bg-gold-gradient text-black font-black text-base shadow-xl shadow-gold-500/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-qrcode text-lg"></i>
+                            <span>Tạo Mã VietQR Thanh Toán & Kích Hoạt</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hướng dẫn kích hoạt & Cài DNS Section -->
+        <section id="guide" class="py-16 bg-dark-950">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gold-500/10 text-gold-400 border border-gold-500/20 mb-3">
+                        Rất Quan Trọng
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Hướng Dẫn Cài DNS & Kích Hoạt Locket Gold</h2>
+                    <p class="mt-2 text-slate-400 text-sm">Vui lòng hoàn thành cài đặt DNS trước khi yêu cầu kích hoạt</p>
+                </div>
+
+                <!-- Cảnh báo quan trọng -->
+                <div class="mb-10 p-5 rounded-2xl bg-rose-950/30 border border-rose-500/50 flex items-start gap-4 shadow-lg shadow-rose-950/20">
+                    <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0 mt-0.5 text-lg">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-base font-extrabold text-rose-300">LƯU Ý QUAN TRỌNG</h4>
+                        <p class="text-sm text-rose-200/90 mt-1 leading-relaxed">
+                            Tuyệt đối <b>không tắt hoặc xóa cấu hình DNS</b> và <b>không tắt tin cậy chứng chỉ LocketGold</b> sau khi kích hoạt. Nếu bạn tắt hoặc xóa, trạng thái Gold có thể bị rớt và ngừng hoạt động.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Hướng dẫn cài DNS iPhone -->
+                    <div class="p-6 sm:p-8 rounded-3xl bg-dark-card border border-dark-700">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center text-lg">
+                                <i class="fa-brands fa-apple"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Hướng Dẫn Cài DNS Cho iPhone</h3>
+                                <p class="text-xs text-slate-400">Bắt buộc làm bước này đầu tiên</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-5 text-sm text-slate-300">
+                            <div class="flex gap-3">
+                                <span class="w-7 h-7 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-xs shrink-0">1</span>
+                                <div>
+                                    <p class="font-semibold text-white">Mở Safari và tải hồ sơ:</p>
+                                    <p class="text-xs text-slate-400 mt-1">
+                                        Mở Safari, truy cập <a href="https://dns.coz.vn" target="_blank" class="text-gold-400 underline font-semibold">https://dns.coz.vn</a> và nhấn <b>Cho phép</b> khi máy hỏi tải hồ sơ cấu hình.
+                                    </p>
+                                    <div class="mt-2.5 flex items-center gap-2">
+                                        <a href="https://dns.coz.vn" target="_blank" class="px-3 py-1.5 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-bold hover:bg-gold-500 hover:text-black transition-all">
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] mr-1"></i> Mở trang dns.coz.vn
+                                        </a>
+                                        <button onclick="copyDnsLink()" class="px-3 py-1.5 rounded-lg bg-dark-800 border border-dark-700 text-slate-300 text-xs hover:border-gold-500 transition-all">
+                                            <i class="fa-solid fa-copy text-[10px] mr-1"></i> Copy link
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3">
+                                <span class="w-7 h-7 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-xs shrink-0">2</span>
+                                <div>
+                                    <p class="font-semibold text-white">Cài đặt hồ sơ vừa tải:</p>
+                                    <p class="text-xs text-slate-400 mt-1">
+                                        Mở <b>Cài đặt</b> trên iPhone → chọn <b>Đã tải về hồ sơ</b> → chọn <b>Cài đặt</b> → nhập mật mã màn hình điện thoại → bấm <b>Cài đặt</b>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3">
+                                <span class="w-7 h-7 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-xs shrink-0">3</span>
+                                <div>
+                                    <p class="font-semibold text-white">Bật tin cậy chứng chỉ:</p>
+                                    <p class="text-xs text-slate-400 mt-1">
+                                        Vào <b>Cài đặt</b> → <b>Cài đặt chung</b> → <b>Giới thiệu</b> → kéo xuống cuối chọn <b>Cài đặt tin cậy chứng chỉ</b> → gạt <b>BẬT</b> cho mục <b>LocketGold</b> → chọn <b>Tiếp tục</b>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3">
+                                <span class="w-7 h-7 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-xs shrink-0">4</span>
+                                <div>
+                                    <p class="font-semibold text-white">Khởi động lại Locket:</p>
+                                    <p class="text-xs text-slate-400 mt-1">
+                                        Tắt hoàn toàn ứng dụng Locket khỏi đa nhiệm (vuốt đóng app) rồi mở lại để kiểm tra huy hiệu Gold.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quy trình kích hoạt Gold -->
+                    <div class="p-6 sm:p-8 rounded-3xl bg-dark-card border border-dark-700">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Quy Trình Kích Hoạt Gold</h3>
+                                <p class="text-xs text-slate-400">An toàn 100% • Không cần mật khẩu</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-sm text-slate-300">
+                            <div class="p-3.5 rounded-xl bg-dark-900/60 border border-dark-700">
+                                <div class="font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-gold-400 text-xs"></i>
+                                    <span>Bước 1: Cài DNS trước</span>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-1">
+                                    Khách hàng cài đặt DNS theo đúng hướng dẫn bên trái. Nếu chưa cài DNS, việc kích hoạt tài khoản sẽ không có hiệu lực.
+                                </p>
+                            </div>
+
+                            <div class="p-3.5 rounded-xl bg-dark-900/60 border border-dark-700">
+                                <div class="font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-gold-400 text-xs"></i>
+                                    <span>Bước 2: Gửi link hoặc username</span>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-1">
+                                    Khách chỉ cần gửi username hoặc link kết bạn Locket. Tuyệt đối không cần mật khẩu hay bất kỳ thông tin riêng tư nào.
+                                </p>
+                            </div>
+
+                            <div class="p-3.5 rounded-xl bg-dark-900/60 border border-dark-700">
+                                <div class="font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-gold-400 text-xs"></i>
+                                    <span>Bước 3: Tra cứu & Kiểm tra trạng thái</span>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-1">
+                                    CTV tra cứu tài khoản, kiểm tra đúng tên nick và trạng thái Gold trên hệ thống.
+                                </p>
+                            </div>
+
+                            <div class="p-3.5 rounded-xl bg-dark-900/60 border border-dark-700">
+                                <div class="font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-gold-400 text-xs"></i>
+                                    <span>Bước 4: Kích hoạt & Hoàn tất</span>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-1">
+                                    CTV bấm kích hoạt. Khi hệ thống báo thành công, bạn chỉ cần vuốt tắt Locket khỏi đa nhiệm rồi mở lại là đã có Gold!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-dark-900/50 border-t border-dark-800">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-xl mx-auto mb-14">
+                    <span class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gold-500/10 text-gold-400 border border-gold-500/20 mb-3">Giải đáp thắc mắc</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Câu Hỏi Thường Gặp</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-5 rounded-2xl bg-dark-card border border-dark-700/80">
+                        <h4 class="text-base font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-circle-question text-gold-400"></i>
+                            <span>Nâng cấp Locket Gold có cần đưa mật khẩu không?</span>
+                        </h4>
+                        <p class="text-sm text-slate-400 mt-2 pl-6">
+                            Tuyệt đối <b>KHÔNG</b>. Chúng tôi chỉ cần bạn cung cấp link tài khoản hoặc username Locket. Mọi dữ liệu cá nhân, ảnh chụp và bạn bè của bạn được bảo mật 100%.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-dark-card border border-dark-700/80">
+                        <h4 class="text-base font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-circle-question text-gold-400"></i>
+                            <span>Tại sao phải cài DNS tại https://dns.coz.vn trước?</span>
+                        </h4>
+                        <p class="text-sm text-slate-400 mt-2 pl-6">
+                            Hồ sơ cấu hình DNS giúp ứng dụng Locket nhận diện trạng thái Gold chính xác trên máy bạn. Đây là bước bắt buộc để huy hiệu và các tính năng mở khóa hoạt động ổn định.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-dark-card border border-dark-700/80">
+                        <h4 class="text-base font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-circle-question text-gold-400"></i>
+                            <span>Bao lâu sau khi thanh toán tôi sẽ nhận được Gold?</span>
+                        </h4>
+                        <p class="text-sm text-slate-400 mt-2 pl-6">
+                            Thông thường chỉ mất từ <b>1 đến 3 phút</b> sau khi bạn quét mã VietQR và gửi xác nhận qua Zalo.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-dark-card border border-dark-700/80">
+                        <h4 class="text-base font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-circle-question text-gold-400"></i>
+                            <span>Chính sách bảo hành như thế nào?</span>
+                        </h4>
+                        <p class="text-sm text-slate-400 mt-2 pl-6">
+                            Gói Locket Gold 1 Năm được hỗ trợ bảo hành trọn vẹn 12 tháng. Nếu có bất kỳ vấn đề gì, bạn chỉ cần liên hệ Zalo 0829.047.847 để được xử lý ngay lập tức.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-950 border-t border-dark-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                <div>
+                    <span class="text-xl font-extrabold text-white flex items-center justify-center md:justify-start gap-2">
+                        LOCKET <span class="text-gold-shine">GOLD</span>
+                    </span>
+                    <p class="text-xs text-slate-400 mt-1">Dịch vụ nâng cấp Locket Gold chính chủ uy tín hàng đầu Việt Nam</p>
+                </div>
+                <div class="text-xs text-slate-400">
+                    <p>Hotline / Zalo hỗ trợ: <a href="https://zalo.me/0829047847" target="_blank" class="text-gold-400 font-bold hover:underline">0829.047.847</a></p>
+                    <p class="mt-1">© 2026 Locket Gold Store. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Thanh Toán VietQR -->
+    <div id="paymentModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 hidden">
+        <div class="bg-dark-900 border border-dark-700 rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- GIAI ĐOẠN 1: QUÉT MÃ QR THANH TOÁN -->
+            <div id="paymentStep1">
+                <div class="text-center">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-bold mb-3">
+                        <i class="fa-solid fa-qrcode"></i>
+                        <span id="modalOrderCodeBadge">ĐƠN HÀNG #LG1234</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-white">Quét Mã VietQR Để Thanh Toán</h3>
+                    <p class="text-xs text-slate-400 mt-1">Hệ thống nhận tiền tự động 24/7 qua MB Bank</p>
+                </div>
+
+                <!-- Khung hiển thị ảnh QR -->
+                <div class="mt-4 p-4 rounded-2xl bg-white flex flex-col items-center justify-center shadow-inner">
+                    <img id="vietQrImg" src="" alt="Mã VietQR Thanh Toán" class="w-60 h-60 object-contain rounded-xl">
+                    <p class="text-[11px] text-slate-600 mt-2 font-medium">Mở app Ngân hàng hoặc MoMo để quét mã</p>
+                </div>
+
+                <!-- Thông tin chi tiết chuyển khoản -->
+                <div class="mt-4 p-3.5 rounded-xl bg-dark-800 border border-dark-700 text-xs space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Ngân hàng:</span>
+                        <span class="font-bold text-white">MB Bank (Quân Đội)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Số tài khoản:</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold text-gold-400 font-mono text-sm">130120090685</span>
+                            <button onclick="copyText('130120090685', 'Đã copy STK!')" class="text-slate-400 hover:text-white" title="Sao chép">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Chủ tài khoản:</span>
+                        <span class="font-bold text-white uppercase">NGUYEN TRUNG TRUC</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Số tiền:</span>
+                        <span id="modalAmount" class="font-black text-gold-shine text-sm">40.000 VNĐ</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Nội dung CK:</span>
+                        <div class="flex items-center gap-2">
+                            <span id="modalTransferContent" class="font-mono font-bold text-white"></span>
+                            <button onclick="copyTransferContent()" class="text-slate-400 hover:text-white" title="Sao chép">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nút chuyển sang Bước Tiếp Theo sau khi CK -->
+                <div class="mt-5 space-y-2.5">
+                    <button onclick="goToPaymentStep2()" class="w-full py-4 rounded-xl bg-gold-gradient text-black font-black text-sm flex items-center justify-center gap-2 shadow-xl shadow-gold-500/25 hover:scale-[1.02] active:scale-95 transition-all">
+                        <span>Tôi Đã Chuyển Khoản Xong</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>Bấm Tiếp Theo</span>
+                    </button>
+                    <button onclick="closePaymentModal()" class="w-full py-2.5 rounded-xl bg-dark-800 text-slate-400 hover:text-white text-xs font-semibold">
+                        Để sau / Đóng
+                    </button>
+                </div>
+            </div>
+
+            <!-- GIAI ĐOẠN 2: CHUYỂN TIẾP SANG ZALO KÍCH HOẠT -->
+            <div id="paymentStep2" class="hidden text-center py-2">
+                <div class="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-500/60 text-emerald-400 flex items-center justify-center text-3xl mx-auto mb-4 animate-bounce">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 class="text-2xl font-black text-white">Chuyển Khoản Thành Công!</h3>
+                <p class="text-xs sm:text-sm text-slate-300 mt-2 px-2">
+                    Bấm nút bên dưới để mở ngay <b>Zalo Admin (0829.047.847)</b> gửi thông tin xác nhận và nhận kích hoạt trong 1–3 phút.
+                </p>
+
+                <div class="mt-4 p-4 rounded-2xl bg-dark-800 border border-dark-700 text-left text-xs space-y-1.5">
+                    <div class="flex items-center gap-2 text-gold-400 font-bold mb-1">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                        <span>Nội dung đơn đã được sao chép sẵn:</span>
+                    </div>
+                    <p class="text-slate-300 line-clamp-3 text-[11px] font-mono bg-dark-900 p-2.5 rounded-lg border border-dark-750" id="previewOrderText">
+                        ...
+                    </p>
+                    <span class="text-[11px] text-emerald-400 block pt-1">
+                        ✓ Bạn chỉ cần bấm <b>Mở Zalo</b> và dán (paste) tin nhắn gửi đi là xong!
+                    </span>
+                </div>
+
+                <div class="mt-6 space-y-3">
+                    <a id="btnOpenZaloFinal" href="https://zalo.me/0829047847" target="_blank" onclick="handleZaloClick()"
+                       class="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-black text-base flex items-center justify-center gap-2.5 shadow-xl shadow-blue-600/30 hover:scale-[1.02] active:scale-95 transition-all">
+                        <i class="fa-solid fa-comment-dots text-xl"></i>
+                        <span>MỞ ZALO KÍCH HOẠT NGAY</span>
+                    </a>
+
+                    <button onclick="backToPaymentStep1()" class="w-full py-2.5 rounded-xl bg-dark-800 text-slate-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-arrow-left text-[11px]"></i>
+                        <span>Quay lại xem mã QR</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal Đăng Nhập CTV -->
+    <div id="ctvModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 hidden">
+        <div class="bg-dark-900 border border-dark-700 rounded-3xl max-w-sm w-full p-6 shadow-2xl relative">
+            <button onclick="closeCtvModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center text-xl mx-auto mb-2">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <h3 class="text-lg font-extrabold text-white">Cổng Đăng Nhập CTV</h3>
+                <p class="text-xs text-slate-400 mt-1">Dành riêng cho đối tác & CTV được cấp tài khoản</p>
+            </div>
+
+            <form onsubmit="handleCtvLogin(event)" class="space-y-4 text-left">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Tài khoản CTV</label>
+                    <input type="text" id="ctvUsernameInput" required placeholder="Nhập username"
+                        class="w-full px-3.5 py-2.5 rounded-xl bg-dark-800 border border-dark-700 text-white text-sm focus:outline-none focus:border-gold-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Mật khẩu</label>
+                    <input type="password" id="ctvPasswordInput" required placeholder="Nhập mật khẩu"
+                        class="w-full px-3.5 py-2.5 rounded-xl bg-dark-800 border border-dark-700 text-white text-sm focus:outline-none focus:border-gold-500">
+                </div>
+                <p id="ctvLoginError" class="text-xs text-rose-400 hidden"></p>
+                <button type="submit" class="w-full py-3 rounded-xl bg-gold-gradient text-black font-extrabold text-sm hover:scale-[1.01] transition-transform">
+                    Đăng Nhập Cổng CTV
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Thông báo Popup Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-dark-800 border border-gold-500/40 text-white px-4 py-3 rounded-xl shadow-2xl text-xs sm:text-sm font-semibold flex items-center gap-2 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-gold-400"></i>
+        <span id="toastMessage">Thông báo</span>
+    </div>
+
+    <!-- Logic JavaScript -->
+    <script>
+        // Cấu hình ngân hàng & Thông tin liên hệ nhận tiền
+        const BANK_CONFIG = {
+            BANK_ID: "MB",
+            ACCOUNT_NO: "130120090685",
+            ACCOUNT_NAME: "NGUYEN TRUNG TRUC",
+            PHONE_ZALO: "0829047847"
+        };
+
+        // Danh sách tài khoản CTV được ủy quyền (Đã cập nhật theo yêu cầu)
+        const CTV_ACCOUNTS = [
+            { user: "ctvmupdz", pass: "mup131", name: "Nguyễn Trung Trực" },
+            { user: "ctvminh", pass: "minh131", name: "Trần Thị bê" }
+        ];
+
+        // Biến trạng thái CTV
+        let isCtvMode = false;
+        let currentCtv = null;
+        let currentOrderData = null;
+
+        // Bảng giá khách lẻ và giá CTV (giảm 50%)
+        const PRICES = {
+            retail: {
+                filter: 15000,
+                gold: 40000
+            },
+            ctv: {
+                filter: 7500,
+                gold: 20000
+            }
+        };
+
+        // Hàm tính toán giá hiện tại
+        function getCurrentPrices() {
+            return isCtvMode ? PRICES.ctv : PRICES.retail;
+        }
+
+        // Chọn nhanh gói từ banner hoặc bảng giá
+        function quickChoose(type) {
+            const pkgFilter = document.getElementById('pkgFilter');
+            const pkgGold = document.getElementById('pkgGold');
+
+            if (type === 'filter') {
+                pkgFilter.checked = true;
+                pkgGold.checked = false;
+            } else if (type === 'gold') {
+                pkgFilter.checked = false;
+                pkgGold.checked = true;
+            } else if (type === 'both') {
+                pkgFilter.checked = true;
+                pkgGold.checked = true;
+            }
+
+            calculateOrderTotal();
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Cập nhật hiển thị tổng tiền trên form
+        function calculateOrderTotal() {
+            const prices = getCurrentPrices();
+            const hasFilter = document.getElementById('pkgFilter').checked;
+            const hasGold = document.getElementById('pkgGold').checked;
+
+            let total = 0;
+            let names = [];
+
+            if (hasFilter) {
+                total += prices.filter;
+                names.push("Unlock Filter");
+            }
+            if (hasGold) {
+                total += prices.gold;
+                names.push("Locket Gold (1 Năm)");
+            }
+
+            const displayElement = document.getElementById('displayOrderTotal');
+            const summaryElement = document.getElementById('summarySelectedPackages');
+
+            if (total === 0) {
+                displayElement.innerText = "0đ";
+                summaryElement.innerText = "Chưa chọn gói dịch vụ";
+            } else {
+                displayElement.innerText = formatMoney(total) + "đ";
+                summaryElement.innerText = "Gói đã chọn: " + names.join(" + ");
+            }
+
+            return { total, names, hasFilter, hasGold };
+        }
+
+        // Xử lý nộp đơn hàng
+        function handleOrderSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const locketInput = document.getElementById('locketUsername').value.trim();
+            const confirmDns = document.getElementById('confirmDns').checked;
+
+            if (!confirmDns) {
+                showToast("Vui lòng xác nhận đã cài DNS trước khi thanh toán!");
+                return;
+            }
+
+            const orderCalc = calculateOrderTotal();
+            if (orderCalc.total === 0) {
+                showToast("Vui lòng chọn ít nhất 1 gói dịch vụ!");
+                return;
+            }
+
+            // Tách và chuẩn hoá Username Locket làm nội dung chuyển khoản
+            // Nếu khách dán link (vd: https://locket.cam/username hoặc locket.cam/username) thì lấy phần username cuối cùng
+            let cleanUsername = locketInput.replace(/^https?:\/\//i, '').replace(/^(www\.)?locket\.cam\//i, '').replace(/^@/, '').trim();
+            // Loại bỏ dấu '/' ở cuối nếu có hoặc các tham số truy vấn
+            cleanUsername = cleanUsername.split('/')[0].split('?')[0];
+            // Làm sạch các ký tự đặc biệt, chỉ giữ lại chữ, số và dấu gạch dưới để app ngân hàng không bị lỗi ký tự lạ
+            cleanUsername = cleanUsername.replace(/[^a-zA-Z0-9_]/g, '');
+
+            if (!cleanUsername) {
+                // Nếu rỗng sau khi lọc ký tự lạ thì dự phòng bằng sđt hoặc mã ngẫu nhiên
+                cleanUsername = "LOCKET" + phone.slice(-4);
+            }
+
+            // Nội dung chuyển khoản CHÍNH LÀ USERNAME LOCKET
+            const transferDescription = cleanUsername.toUpperCase();
+
+            // Tạo mã đơn để quản lý nội bộ
+            const randomCode = Math.floor(1000 + Math.random() * 9000);
+            const orderCode = (isCtvMode ? "CTV" : "LG") + randomCode;
+
+            currentOrderData = {
+                orderCode,
+                name,
+                phone,
+                locketUser: locketInput,
+                cleanUsername: transferDescription,
+                packages: orderCalc.names.join(" + "),
+                amount: orderCalc.total,
+                transferDescription: transferDescription,
+                isCtv: isCtvMode,
+                ctvName: currentCtv ? currentCtv.name : null,
+                ctvUser: currentCtv ? currentCtv.user : null,
+                hasFilter: orderCalc.hasFilter,
+                hasGold: orderCalc.hasGold
+            };
+
+            // Tạo link VietQR động với nội dung CK là chính Username Locket
+            const qrUrl = `https://img.vietqr.io/image/${BANK_CONFIG.BANK_ID}-${BANK_CONFIG.ACCOUNT_NO}-compact2.png?amount=${currentOrderData.amount}&addInfo=${encodeURIComponent(transferDescription)}&accountName=${encodeURIComponent(BANK_CONFIG.ACCOUNT_NAME)}`;
+
+            // Đổ dữ liệu vào Modal
+            document.getElementById('vietQrImg').src = qrUrl;
+            document.getElementById('modalOrderCodeBadge').innerText = "LOCKET USER: " + transferDescription;
+            document.getElementById('modalAmount').innerText = formatMoney(currentOrderData.amount) + " VNĐ";
+            document.getElementById('modalTransferContent').innerText = transferDescription;
+
+            // Xây dựng nội dung tin nhắn gửi Zalo phân tách chi tiết theo từng gói
+            let packageTitle = "";
+            let actionRequirement = "";
+
+            if (orderCalc.hasGold && orderCalc.hasFilter) {
+                packageTitle = `🔥 COMBO VIP: Locket Gold (1 Năm) + Mở Khóa Full Filter`;
+                actionRequirement = `👉 Nhờ Admin kích hoạt cả Locket Gold 1 Năm và mở khóa trọn bộ Filter Locket cho tài khoản bên dưới.`;
+            } else if (orderCalc.hasGold) {
+                packageTitle = `👑 GÓI: Locket Gold (1 Năm Chính Chủ)`;
+                actionRequirement = `👉 Nhờ Admin duyệt và kích hoạt quyền Locket Gold 1 năm cho tài khoản bên dưới.`;
+            } else if (orderCalc.hasFilter) {
+                packageTitle = `✨ GÓI: Mở Khóa Toàn Bộ Filter Locket (Vĩnh Viễn)`;
+                actionRequirement = `👉 Nhờ Admin mở khóa trọn bộ Filter Locket cho tài khoản bên dưới.`;
+            }
+
+            let orderInfoText = "";
+            if (isCtvMode && currentCtv) {
+                orderInfoText = `[ĐƠN ĐẠI LÝ / CTV - ${currentCtv.name.toUpperCase()} (@${currentCtv.user})]\n` +
+                                `Chào Admin, mình gửi đơn CTV vừa thanh toán:\n\n` +
+                                `📦 ${packageTitle}\n` +
+                                `${actionRequirement}\n\n` +
+                                `📋 CHI TIẾT ĐƠN HÀNG:\n` +
+                                `- Nội dung CK (Username): ${transferDescription}\n` +
+                                `- Link / Username Locket: ${locketInput}\n` +
+                                `- Tên CTV / Khách: ${name}\n` +
+                                `- SĐT / Zalo: ${phone}\n` +
+                                `- Số tiền đã CK (Giá CTV -50%): ${formatMoney(currentOrderData.amount)} VNĐ\n` +
+                                `- Mã quản lý đơn: ${orderCode}\n` +
+                                `⚡ Trạng thái DNS: Đã cài cấu hình dns.coz.vn và bật tin cậy chứng chỉ xong.`;
+            } else {
+                orderInfoText = `[XÁC NHẬN ĐƠN HÀNG LOCKET]\n` +
+                                `Chào bạn, mình vừa chuyển khoản thanh toán xong:\n\n` +
+                                `📦 ${packageTitle}\n` +
+                                `${actionRequirement}\n\n` +
+                                `📋 CHI TIẾT ĐƠN HÀNG:\n` +
+                                `- Nội dung CK (Username): ${transferDescription}\n` +
+                                `- Link / Username Locket: ${locketInput}\n` +
+                                `- Họ và tên: ${name}\n` +
+                                `- SĐT / Zalo liên hệ: ${phone}\n` +
+                                `- Số tiền đã chuyển: ${formatMoney(currentOrderData.amount)} VNĐ\n` +
+                                `- Mã quản lý đơn: ${orderCode}\n` +
+                                `⚡ Trạng thái DNS: Đã cài hoàn tất dns.coz.vn trên iPhone.`;
+            }
+
+            // Gắn vào link Zalo và khung xem trước
+            document.getElementById('btnOpenZaloFinal').href = `https://zalo.me/${BANK_CONFIG.PHONE_ZALO}?text=${encodeURIComponent(orderInfoText)}`;
+            document.getElementById('previewOrderText').innerText = orderInfoText;
+
+            // Reset modal về bước 1
+            backToPaymentStep1();
+
+            // Mở Modal
+            document.getElementById('paymentModal').classList.remove('hidden');
+        }
+
+        // Chuyển sang Bước 2 (Chuyển khoản xong -> Mở Zalo)
+        function goToPaymentStep2() {
+            if (!currentOrderData) return;
+            document.getElementById('paymentStep1').classList.add('hidden');
+            document.getElementById('paymentStep2').classList.remove('hidden');
+
+            // Tự động copy nội dung đơn hàng vào Clipboard để khách tiện paste vào Zalo
+            const textToCopy = document.getElementById('previewOrderText').innerText;
+            copyTextSilently(textToCopy);
+            showToast("Đã sao chép nội dung đơn hàng!");
+        }
+
+        // Quay lại Bước 1 xem mã QR
+        function backToPaymentStep1() {
+            document.getElementById('paymentStep2').classList.add('hidden');
+            document.getElementById('paymentStep1').classList.remove('hidden');
+        }
+
+        // Đóng modal thanh toán
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+        }
+
+        // Xử lý khi bấm nút Mở Zalo
+        function handleZaloClick() {
+            showToast("Đang mở Zalo admin...");
+        }
+
+        // Hàm sao chép ngầm không bật popup lỗi
+        function copyTextSilently(text) {
+            const tempInput = document.createElement("textarea");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand("copy");
+            } catch (err) {}
+            document.body.removeChild(tempInput);
+        }
+
+        // Đăng nhập CTV
+        function openCtvModal() {
+            document.getElementById('ctvModal').classList.remove('hidden');
+            document.getElementById('ctvLoginError').classList.add('hidden');
+        }
+
+        function closeCtvModal() {
+            document.getElementById('ctvModal').classList.add('hidden');
+        }
+
+        function handleCtvLogin(event) {
+            event.preventDefault();
+            const userVal = document.getElementById('ctvUsernameInput').value.trim();
+            const passVal = document.getElementById('ctvPasswordInput').value.trim();
+
+            const found = CTV_ACCOUNTS.find(a => a.user.toLowerCase() === userVal.toLowerCase() && a.pass === passVal);
+
+            if (found) {
+                isCtvMode = true;
+                currentCtv = found;
+                closeCtvModal();
+                updateCtvUiState();
+                showToast(`Đăng nhập CTV thành công! Xin chào ${found.name}`);
+            } else {
+                const err = document.getElementById('ctvLoginError');
+                err.innerText = "Sai tài khoản hoặc mật khẩu CTV. Vui lòng thử lại!";
+                err.classList.remove('hidden');
+            }
+        }
+
+        // Đăng xuất CTV
+        function logoutCtv() {
+            isCtvMode = false;
+            currentCtv = null;
+            updateCtvUiState();
+            showToast("Đã thoát chế độ CTV!");
+        }
+
+        // Cập nhật giao diện khi ở chế độ CTV
+        function updateCtvUiState() {
+            const prices = getCurrentPrices();
+            const labelFilter = document.getElementById('labelPriceFilter');
+            const labelGold = document.getElementById('labelPriceGold');
+            const cardPriceFilter = document.getElementById('cardPriceFilter');
+            const cardPriceGold = document.getElementById('cardPriceGold');
+            const badgeCtvFilter = document.getElementById('badgeCtvFilter');
+            const badgeCtvGold = document.getElementById('badgeCtvGold');
+            const comboPriceText = document.getElementById('comboPriceText');
+            const comboBtnPrice = document.getElementById('comboBtnPrice');
+            const ctvActiveBanner = document.getElementById('ctvActiveBanner');
+            const ctvLoggedName = document.getElementById('ctvLoggedName');
+            const floatingCtvBtn = document.getElementById('floatingCtvBtn');
+            const ctvTopActionArea = document.getElementById('ctvTopActionArea');
+            const ctvNavSlot = document.getElementById('ctvNavSlot');
+
+            if (isCtvMode && currentCtv) {
+                // Hiển thị banner CTV
+                ctvActiveBanner.classList.remove('hidden');
+                ctvLoggedName.innerText = currentCtv.name;
+                
+                // Đổi nút ở header & top banner
+                ctvTopActionArea.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-black font-black">CTV: ${currentCtv.name}</span>
+                        <button onclick="logoutCtv()" class="px-2.5 py-1 rounded bg-black text-white hover:bg-red-600 text-xs font-bold transition-colors">Đăng xuất</button>
+                    </div>
+                `;
+                ctvNavSlot.innerHTML = `
+                    <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/20 border border-emerald-500 text-emerald-300 text-xs font-black">
+                        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                        <span>CTV: ${currentCtv.name}</span>
+                        <button onclick="logoutCtv()" title="Đăng xuất CTV" class="ml-1 text-slate-400 hover:text-red-400"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                `;
+
+                // Cập nhật giá trên thẻ bảng giá
+                cardPriceFilter.innerText = formatMoney(prices.filter);
+                cardPriceGold.innerText = formatMoney(prices.gold);
+                badgeCtvFilter.classList.remove('hidden');
+                badgeCtvGold.classList.remove('hidden');
+
+                // Cập nhật giá Combo
+                comboPriceText.innerText = formatMoney(prices.filter + prices.gold) + " VNĐ (Giá CTV)";
+                comboBtnPrice.innerText = "27.5k";
+
+                // Cập nhật giá trong Form
+                labelFilter.innerText = formatMoney(prices.filter) + "đ (CTV -50%)";
+                labelGold.innerText = formatMoney(prices.gold) + "đ (CTV -50%)";
+
+                // Ẩn nút floating vì đã đăng nhập
+                floatingCtvBtn.classList.add('hidden');
+            } else {
+                // Khôi phục giao diện khách lẻ
+                ctvActiveBanner.classList.add('hidden');
+                
+                ctvTopActionArea.innerHTML = `
+                    <button onclick="openCtvModal()" class="px-3.5 py-1.5 rounded-lg bg-black text-gold-300 hover:text-white font-black text-xs shadow hover:scale-105 transition-all flex items-center gap-1.5 shrink-0">
+                        <i class="fa-solid fa-key"></i>
+                        <span>Đăng Nhập Cổng CTV</span>
+                    </button>
+                `;
+                ctvNavSlot.innerHTML = `
+                    <button onclick="openCtvModal()" class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-extrabold bg-gradient-to-r from-amber-500/20 to-gold-500/20 border-2 border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-black shadow-lg shadow-gold-500/20 transition-all">
+                        <i class="fa-solid fa-user-lock"></i>
+                        <span>Cổng CTV (-50%)</span>
+                    </button>
+                `;
+
+                cardPriceFilter.innerText = formatMoney(prices.filter);
+                cardPriceGold.innerText = formatMoney(prices.gold);
+                badgeCtvFilter.classList.add('hidden');
+                badgeCtvGold.classList.add('hidden');
+
+                comboPriceText.innerText = "55.000 VNĐ";
+                comboBtnPrice.innerText = "55k";
+
+                labelFilter.innerText = formatMoney(prices.filter) + "đ";
+                labelGold.innerText = formatMoney(prices.gold) + "đ";
+
+                floatingCtvBtn.classList.remove('hidden');
+            }
+            calculateOrderTotal();
+        }
+
+        // Sao chép nội dung chuyển khoản
+        function copyTransferContent() {
+            if (currentOrderData) {
+                copyText(currentOrderData.transferDescription, "Đã copy nội dung chuyển khoản!");
+            }
+        }
+
+        // Sao chép link DNS
+        function copyDnsLink() {
+            copyText("https://dns.coz.vn", "Đã copy link DNS: https://dns.coz.vn");
+        }
+
+        // Hàm copy văn bản an toàn
+        function copyText(text, successMsg) {
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand("copy");
+                showToast(successMsg);
+            } catch (err) {
+                showToast("Không thể tự động copy, vui lòng copy thủ công.");
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // Hiển thị Toast thông báo
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // Format tiền tệ VNĐ
+        function formatMoney(amount) {
+            return amount.toLocaleString('vi-VN');
+        }
+
+        // Khởi động khi tải xong trang
+        window.onload = function() {
+            calculateOrderTotal();
+        };
+    </script>
+</body>
+</html>
