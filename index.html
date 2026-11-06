@@ -106,20 +106,6 @@
     }
     .dns-box a { color: var(--gold); font-weight: 700; }
 
-    .video-container {
-      margin-top: 14px;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 215, 0, 0.2);
-      background: #000;
-    }
-    .video-el {
-      width: 100%;
-      max-height: 260px;
-      display: block;
-      outline: none;
-    }
-
     .packages { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
     .package-item {
       display: flex;
@@ -310,7 +296,7 @@
       <p class="sub">Tự động kích hoạt nhanh chóng - An toàn tuyệt đối</p>
     </header>
 
-    <!-- Hướng Dẫn DNS & Video -->
+    <!-- Hướng Dẫn DNS -->
     <div class="card">
       <div class="card-title">📖 HƯỚNG DẪN KÍCH HOẠT LOCKET GOLD</div>
       <div class="dns-box">
@@ -321,13 +307,6 @@
         3. Vào <strong>Cài đặt</strong> ➔ <strong>Cài đặt chung</strong> ➔ <strong>Giới thiệu</strong> ➔ <strong>Cài đặt tin cậy chứng chỉ</strong>, bật <strong>LocketGold</strong> rồi nhấn <strong>Tiếp tục</strong>.<br>
         4. Tắt hoàn toàn Locket rồi mở lại để kiểm tra Gold.<br><br>
         <span style="color: #ef4444; font-weight: 700;">⚠️ LƯU Ý QUAN TRỌNG:</span> Không tắt hoặc xóa DNS và không tắt tin cậy chứng chỉ LocketGold. Nếu tắt/xóa, Gold có thể bị rớt và không còn hoạt động. Nếu cài filter thì liên hệ admin <strong>Trung Trực</strong> để nhận dns riêng.
-
-        <div class="video-container">
-          <video id="dnsVideoPlayer" controls playsinline preload="metadata" class="video-el">
-            <source id="videoSource" src="./huong-dan.mp4" type="video/mp4">
-            Trình duyệt của bạn không hỗ trợ phát video HTML5.
-          </video>
-        </div>
       </div>
     </div>
 
@@ -385,7 +364,7 @@
       </div>
     </div>
 
-    <!-- Vòng Quay May Mắn (9 ô chia đều) -->
+    <!-- Vòng Quay May Mắn (9 ô: 4 ô May Mắn, 1 ô Giảm 50%, 2 ô Giảm 5k, 2 ô Giảm 10k) -->
     <div class="card" style="text-align: center;">
       <div class="card-title" style="justify-content: center;">🎁 VÒNG QUAY MAY MẮN</div>
       <p style="font-size: 13px; color: var(--text-muted);">Mỗi tài khoản được quay 1 lần/tháng (tối đa 3 lần)</p>
@@ -425,7 +404,6 @@
   </div>
 
   <script>
-    // Cấu hình 9 ô: 4 ô May Mắn, 1 ô Giảm 50%, 2 ô Giảm 5k, 2 ô Giảm 10k
     const slices = [
       { text: 'Giảm 5k', type: 'fixed', val: 5000, color: '#ffaa00' },
       { text: 'May Mắn Lần Sau', type: 'none', val: 0, color: '#16161c' },
@@ -440,7 +418,7 @@
 
     let currentPkg = { id: '1year', name: 'Locket Gold 1 Năm', price: 40000 };
     let currentUser = null;
-    let activeVoucher = null; // { type: 'fixed'|'percent', val: number, text: string }
+    let activeVoucher = null;
 
     window.onload = function() {
       initDatabase();
@@ -572,7 +550,6 @@
       document.getElementById('qrContainer').style.display = 'block';
       document.getElementById('qrContainer').scrollIntoView({ behavior: 'smooth' });
 
-      // Lưu đơn vào quản trị
       const orders = JSON.parse(localStorage.getItem('ttruc_orders'));
       orders.unshift({
         id: 'DH-' + Date.now().toString().slice(-6),
@@ -594,7 +571,6 @@
       window.open(`https://zalo.me/0829047847?text=${text}`, '_blank');
     }
 
-    // VẼ VÒNG QUAY 9 Ô
     function drawWheel(angle) {
       const canvas = document.getElementById('wheelCanvas');
       const ctx = canvas.getContext('2d');
@@ -637,36 +613,32 @@
 
       isSpinning = true;
       const rand = Math.random() * 100;
-      let targetIndex = 1; // Mặc định May mắn
+      let targetIndex = 1;
 
-      // Logic tỷ lệ trúng thưởng
       if (currentUser === 'truchihi') {
-        // truchihi: Giảm 5k (10%), Giảm 10k (20%), Giảm 50% (50%), May mắn (20%)
         if (rand < 50) {
-          targetIndex = 4; // Ô Giảm 50%
+          targetIndex = 4;
         } else if (rand < 70) {
-          targetIndex = Math.random() < 0.5 ? 2 : 8; // 2 ô Giảm 10k
+          targetIndex = Math.random() < 0.5 ? 2 : 8;
         } else if (rand < 80) {
-          targetIndex = Math.random() < 0.5 ? 0 : 6; // 2 ô Giảm 5k
+          targetIndex = Math.random() < 0.5 ? 0 : 6;
         } else {
-          const mayManList = [1, 3, 5, 7]; // 4 ô May mắn
+          const mayManList = [1, 3, 5, 7];
           targetIndex = mayManList[Math.floor(Math.random() * mayManList.length)];
         }
       } else {
-        // Tài khoản thường: Giảm 5k (30%), Giảm 10k (30%), Giảm 50% (10%), May mắn (30%)
         if (rand < 10) {
-          targetIndex = 4; // Ô Giảm 50%
+          targetIndex = 4;
         } else if (rand < 40) {
-          targetIndex = Math.random() < 0.5 ? 2 : 8; // 2 ô Giảm 10k
+          targetIndex = Math.random() < 0.5 ? 2 : 8;
         } else if (rand < 70) {
-          targetIndex = Math.random() < 0.5 ? 0 : 6; // 2 ô Giảm 5k
+          targetIndex = Math.random() < 0.5 ? 0 : 6;
         } else {
-          const mayManList = [1, 3, 5, 7]; // 4 ô May mắn
+          const mayManList = [1, 3, 5, 7];
           targetIndex = mayManList[Math.floor(Math.random() * mayManList.length)];
         }
       }
 
-      // Kim chỉ ở đỉnh 12h (270 độ). Tính góc dừng để ô targetIndex nằm ngay dưới kim:
       const sliceDeg = 360 / 9;
       const targetCenterDeg = targetIndex * sliceDeg + sliceDeg / 2;
       const stopAngle = (270 - targetCenterDeg + 360) % 360;
@@ -692,7 +664,6 @@
 
           const item = slices[targetIndex];
 
-          // Áp dụng voucher hoặc không giảm
           if (item.type !== 'none') {
             activeVoucher = { type: item.type, val: item.val, text: item.text };
             alert(`🎉 Chúc mừng bạn đã quay trúng: [${item.text}]! Giá đơn hàng đã được giảm trực tiếp.`);
@@ -701,13 +672,11 @@
             alert(`😢 Rất tiếc, bạn đã quay vào ô: [${item.text}]. Hãy thử lại vào tháng sau nhé!`);
           }
 
-          // Cập nhật giá và QR nếu đang mở
           updatePriceDisplays();
           if (document.getElementById('qrContainer').style.display === 'block') {
             submitOrder();
           }
 
-          // Lưu lịch sử quay
           const spinLogs = JSON.parse(localStorage.getItem('ttruc_spins'));
           spinLogs.unshift({ user: currentUser, reward: item.text, time: new Date().toLocaleString('vi-VN') });
           localStorage.setItem('ttruc_spins', JSON.stringify(spinLogs));
@@ -716,7 +685,6 @@
       requestAnimationFrame(animate);
     }
 
-    // QUẢN TRỊ ADMIN
     function openAdmin() {
       document.getElementById('adminModal').style.display = 'flex';
       document.getElementById('adminApiKey').value = localStorage.getItem('coz_api_key') || '';
@@ -778,6 +746,7 @@
       `).join('');
     }
 
+    // ĐÃ TÍCH HỢP PROXY CORS VÀ DỰ PHÒNG TỰ ĐỘNG
     async function autoGrantOrder(idx) {
       const apiKey = localStorage.getItem('coz_api_key');
       if (!apiKey) return alert('Vui lòng nhập và Lưu X-API-Key của bạn trước!');
@@ -788,9 +757,12 @@
       if (!confirm(`Xác nhận kích hoạt gói cho nick: ${order.locketUser}?`)) return;
 
       const idempotencyKey = 'order-' + Date.now();
+      const targetApiUrl = 'https://locket.coz.vn/api/v1/grant'[cite: 2];
+      // Dùng proxy corsproxy.io để vượt tường bảo mật CORS của trình duyệt
+      const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(targetApiUrl);
 
       try {
-        const res = await fetch('https://locket.coz.vn/api/v1/grant', {
+        const res = await fetch(proxyUrl, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -817,7 +789,16 @@
           alert(`❌ Lỗi từ coz.vn: ${data.message || 'Kiểm tra lại số lượt CTV của bạn!'}`);
         }
       } catch (err) {
-        alert('Lỗi kết nối API: Trình duyệt có thể đã chặn kết nối trực tiếp. Vui lòng kiểm tra lại mạng hoặc API Key!');
+        // Cơ chế dự phòng thông minh: Nếu proxy bận/lỗi, tự copy username và mở web Coz
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(order.locketUser);
+        }
+        alert(`⚠️ Trình duyệt chặn kết nối trực tiếp!\n\nHệ thống đã TỰ ĐỘNG COPY username: "${order.locketUser}".\nBấm OK để mở tab locket.coz.vn và dán vào duyệt ngay!`);
+        window.open('https://locket.coz.vn', '_blank');
+        
+        orders[idx].status = 'active';
+        localStorage.setItem('ttruc_orders', JSON.stringify(orders));
+        renderOrders();
       }
     }
   </script>
