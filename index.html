@@ -3,129 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Locket Gold TTruc - Kích Hoạt Chính Chủ & Tự Động Coz API</title>
+  <title>Locket Gold TTruc - Dịch Vụ Kích Hoạt Chính Chủ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #09090c;
-      --card-bg: rgba(20, 20, 27, 0.92);
-      --card-border: rgba(255, 215, 0, 0.2);
+      --bg: #0a0a0c;
+      --card-bg: rgba(22, 22, 28, 0.9);
+      --card-border: rgba(255, 215, 0, 0.18);
       --gold: #f5c518;
-      --gold-hover: #ffd700;
-      --gold-gradient: linear-gradient(135deg, #ffe066 0%, #ffd700 45%, #ff9900 100%);
+      --gold-gradient: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --emerald: #10b981;
+      --accent: #22c55e;
       --danger: #ef4444;
       --radius: 16px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      -webkit-tap-highlight-color: transparent;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
 
     body {
-      background: radial-gradient(circle at 50% 0%, #201700 0%, #09090c 65%);
+      background: radial-gradient(circle at 50% 0%, #1a1500 0%, #0a0a0c 60%);
       color: var(--text-main);
       min-height: 100vh;
-      padding: 14px 12px 90px;
+      padding: 16px 14px 80px;
     }
 
-    .container {
-      max-width: 480px;
-      margin: 0 auto;
-    }
+    .container { max-width: 500px; margin: 0 auto; }
 
-    /* Top Nav Bar */
     .top-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--card-border);
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 10px 14px;
       margin-bottom: 20px;
-      backdrop-filter: blur(12px);
     }
-    .user-pill {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--gold);
-    }
-    .badge-admin {
-      background: rgba(239, 68, 68, 0.2);
-      color: #f87171;
-      border: 1px solid rgba(239, 68, 68, 0.4);
-      font-size: 10px;
-      padding: 2px 7px;
-      border-radius: 99px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-    }
+    .user-pill { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--gold); }
+    .badge-admin { background: #ef4444; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
     .nav-btns { display: flex; gap: 8px; }
     .btn-sm {
-      padding: 7px 12px;
-      border-radius: 9px;
+      padding: 6px 12px;
+      border-radius: 8px;
       font-size: 12px;
       font-weight: 700;
       border: none;
       cursor: pointer;
-      transition: all 0.2s ease;
     }
-    .btn-admin {
-      background: var(--gold-gradient);
-      color: #000;
-      box-shadow: 0 0 14px rgba(245, 197, 24, 0.35);
-    }
-    .btn-admin:hover { transform: translateY(-1px); }
-    .btn-logout {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
-    }
-    .btn-logout:hover { background: rgba(239, 68, 68, 0.2); color: #f87171; }
 
-    header { text-align: center; margin-bottom: 20px; }
+    header { text-align: center; margin-bottom: 24px; }
     .badge-top {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 14px;
+      display: inline-block;
+      padding: 6px 14px;
       border-radius: 99px;
       background: rgba(245, 197, 24, 0.12);
       border: 1px solid rgba(245, 197, 24, 0.3);
       color: var(--gold);
-      font-size: 11px;
-      font-weight: 800;
-      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.6px;
-    }
-    .pulsing-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 8px var(--gold);
     }
     h1 {
-      font-size: 27px;
+      font-size: 26px;
       font-weight: 800;
       background: var(--gold-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      letter-spacing: -0.5px;
+      margin-bottom: 4px;
     }
-    p.sub { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+    p.sub { font-size: 13px; color: var(--text-muted); }
 
     .card {
       background: var(--card-bg);
@@ -133,66 +83,84 @@
       border-radius: var(--radius);
       padding: 18px;
       margin-bottom: 18px;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
     .card-title {
-      font-size: 14px;
-      font-weight: 800;
+      font-size: 15px;
+      font-weight: 700;
       margin-bottom: 14px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 8px;
       color: var(--gold);
-      letter-spacing: 0.3px;
     }
 
     .dns-box {
-      border: 1px dashed rgba(245, 197, 24, 0.35);
-      background: rgba(245, 197, 24, 0.04);
+      border: 1px dashed rgba(245, 197, 24, 0.4);
+      background: rgba(245, 197, 24, 0.05);
       padding: 14px;
       border-radius: 12px;
       font-size: 13px;
       line-height: 1.6;
     }
-    .dns-box ol { padding-left: 18px; margin: 8px 0 10px; }
-    .dns-box li { margin-bottom: 4px; }
-    .dns-box a { color: var(--gold); font-weight: 700; text-decoration: underline; }
+    .dns-box a { color: var(--gold); font-weight: 700; }
+
+    .video-container {
+      margin-top: 14px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      background: #000;
+    }
+    .video-el {
+      width: 100%;
+      max-height: 260px;
+      display: block;
+      outline: none;
+    }
 
     .packages { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
     .package-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 13px 15px;
+      padding: 14px;
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.025);
+      background: rgba(255, 255, 255, 0.03);
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.2s ease;
     }
-    .package-item.active {
-      border-color: var(--gold);
-      background: rgba(245, 197, 24, 0.1);
-      box-shadow: 0 0 16px rgba(245, 197, 24, 0.15);
-    }
-    .package-info .name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+    .package-item.active { border-color: var(--gold); background: rgba(245, 197, 24, 0.12); }
+    .package-info .name { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
     .package-info .desc { font-size: 12px; color: var(--text-muted); }
-    .price-num { font-size: 15px; font-weight: 800; color: var(--gold); text-align: right; }
-    .old-price { font-size: 11px; text-decoration: line-through; color: var(--text-muted); margin-right: 4px; }
+    .price-num { font-size: 16px; font-weight: 800; color: var(--gold); }
+
+    .voucher-banner {
+      display: none;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-align: center;
+    }
 
     .form-group { margin-bottom: 14px; }
-    label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; color: var(--text-muted); }
+    label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--text-muted); }
     input[type="text"], input[type="password"] {
       width: 100%;
       padding: 12px 14px;
       border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.5);
       color: #fff;
       font-size: 14px;
       outline: none;
-      transition: border-color 0.2s ease;
     }
     input:focus { border-color: var(--gold); }
 
@@ -201,48 +169,59 @@
       padding: 13px;
       border: none;
       border-radius: 12px;
-      font-size: 14px;
-      font-weight: 800;
+      font-size: 15px;
+      font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: all 0.2s ease;
     }
-    .btn-gold {
-      background: var(--gold-gradient);
-      color: #000;
-      box-shadow: 0 4px 18px rgba(245, 197, 24, 0.3);
-    }
-    .btn-gold:hover { transform: translateY(-1px); opacity: 0.95; }
-    .btn-gold:active { transform: scale(0.98); }
-    .btn-zalo { background: #0068ff; color: #fff; margin-top: 10px; text-decoration: none; }
-    .btn-zalo:hover { background: #0056d6; }
+    .btn-gold { background: var(--gold-gradient); color: #000; }
+    .btn-zalo { background: #0068ff; color: #fff; margin-top: 12px; }
 
-    .qr-container { display: none; text-align: center; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: 14px; }
-    .qr-img {
-      width: 210px;
-      height: 210px;
-      border-radius: 14px;
-      border: 2px solid var(--gold);
-      background: #fff;
-      margin: 12px auto;
-      padding: 6px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+    .qr-container { display: none; text-align: center; padding-top: 12px; }
+    .qr-img { width: 210px; height: 210px; border-radius: 12px; border: 2px solid var(--gold); background: #fff; margin: 12px auto; padding: 6px; }
+    .bank-info { background: rgba(255, 255, 255, 0.04); padding: 12px; border-radius: 10px; margin-bottom: 12px; font-size: 13px; line-height: 1.6; }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
     }
-    .bank-info {
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 12px;
+    .modal-card {
+      background: #15151c;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 480px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 20px;
+    }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+
+    .order-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 10px;
-      margin-bottom: 12px;
+      padding: 12px;
+      margin-bottom: 10px;
       font-size: 13px;
-      line-height: 1.6;
-      text-align: left;
     }
+    .order-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+    .status-badge { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+    .status-pending { background: rgba(234, 179, 8, 0.2); color: #facc15; }
+    .status-done { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
 
-    /* Vòng Quay May Mắn */
+    /* Vòng Quay */
     .wheel-wrapper {
       position: relative;
       width: 290px;
@@ -259,160 +238,60 @@
       border-left: 14px solid transparent;
       border-right: 14px solid transparent;
       border-top: 24px solid #ef4444;
-      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.8));
       z-index: 20;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.6));
     }
-    canvas#wheelCanvas {
+    canvas {
       border-radius: 50%;
       border: 4px solid var(--gold);
       box-shadow: 0 0 25px rgba(245, 197, 24, 0.35);
       display: block;
     }
-    .spin-stats {
-      display: flex;
-      justify-content: space-around;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 10px;
-      border-radius: 10px;
-      font-size: 12px;
-      margin-bottom: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    /* Modal / Auth / Admin */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.88);
-      backdrop-filter: blur(8px);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 14px;
-    }
-    .modal-card {
-      background: #14141c;
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      width: 100%;
-      max-width: 480px;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 22px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-    }
-    .auth-tabs {
-      display: flex;
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
-      padding: 4px;
-      margin-bottom: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .auth-tab-btn {
-      flex: 1;
-      padding: 9px;
-      border-radius: 7px;
-      border: none;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      color: var(--text-muted);
-      background: transparent;
-      transition: all 0.2s ease;
-    }
-    .auth-tab-btn.active {
-      background: var(--gold-gradient);
-      color: #000;
-    }
-
-    .order-box {
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 10px;
-      font-size: 12px;
-    }
-    .order-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-    .status-badge { padding: 2px 7px; border-radius: 4px; font-size: 10px; font-weight: 800; }
-    .status-pending { background: rgba(234, 179, 8, 0.2); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); }
-    .status-done { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-
-    .quick-preset {
-      font-size: 11px;
-      color: var(--gold);
-      background: rgba(245, 197, 24, 0.1);
-      padding: 4px 8px;
-      border-radius: 6px;
-      cursor: pointer;
-      border: 1px dashed rgba(245, 197, 24, 0.3);
-      display: inline-block;
-      margin-top: 4px;
-    }
   </style>
 </head>
 <body>
 
-  <!-- ================= AUTH GATE OVERLAY ================= -->
+  <!-- Modal Đăng nhập / Đăng ký -->
   <div class="modal" id="authGate" style="display: flex;">
     <div class="modal-card">
-      <div style="text-align: center; margin-bottom: 14px;">
-        <div class="badge-top">
-          <span class="pulsing-dot"></span> XÁC THỰC THÀNH VIÊN
-        </div>
-        <h2 style="font-size: 22px; font-weight: 800; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          LOCKET GOLD TTRUC
-        </h2>
-        <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;" id="authSubtitle">
-          Vui lòng đăng nhập để sử dụng hệ thống
-        </p>
+      <div style="text-align: center; margin-bottom: 16px;">
+        <h2 style="color: var(--gold); font-size: 20px; margin-bottom: 4px;">LOCKET GOLD TTRUC</h2>
+        <p style="font-size: 13px; color: var(--text-muted);" id="authSubtitle">Đăng nhập tài khoản để vào trang web</p>
       </div>
 
-      <!-- Auth Switch Tabs -->
-      <div class="auth-tabs">
-        <button id="tabBtnLogin" class="auth-tab-btn active" onclick="switchAuthTab('login')">ĐĂNG NHẬP</button>
-        <button id="tabBtnRegister" class="auth-tab-btn" onclick="switchAuthTab('register')">ĐĂNG KÝ</button>
-      </div>
-
-      <!-- Login Form -->
-      <div id="loginFormSection">
+      <div id="loginSection">
         <div class="form-group">
           <label>Tên đăng nhập:</label>
-          <input type="text" id="loginUsername" value="truchihi" placeholder="Nhập tên đăng nhập">
+          <input type="text" id="loginUsername" placeholder="Nhập tên đăng nhập">
         </div>
         <div class="form-group">
           <label>Mật khẩu:</label>
-          <input type="password" id="loginPassword" value="trungtruc131" placeholder="Nhập mật khẩu">
+          <input type="password" id="loginPassword" placeholder="Nhập mật khẩu">
         </div>
-        <div style="margin-bottom: 12px;">
-          <span class="quick-preset" onclick="fillAdminCredentials()">
-            👉 Tài khoản Admin có sẵn: truchihi / trungtruc131
-          </span>
-        </div>
-        <button class="btn btn-gold" onclick="handleLogin()">VÀO TRANG WEB</button>
+        <button class="btn btn-gold" onclick="handleLogin()">ĐĂNG NHẬP VÀO WEB</button>
+        <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 14px;">
+          Chưa có tài khoản? <a href="javascript:void(0)" onclick="toggleAuth(true)" style="color: var(--gold); font-weight:700;">Đăng ký ngay</a>
+        </p>
       </div>
 
-      <!-- Register Form -->
-      <div id="registerFormSection" style="display: none;">
+      <div id="registerSection" style="display: none;">
         <div class="form-group">
-          <label>Tạo tên đăng nhập mới:</label>
-          <input type="text" id="regUsername" placeholder="Ví dụ: khachhangvip">
+          <label>Tạo tên đăng nhập:</label>
+          <input type="text" id="regUsername" placeholder="Tên đăng nhập mới">
         </div>
         <div class="form-group">
           <label>Tạo mật khẩu:</label>
-          <input type="password" id="regPassword" placeholder="Tối thiểu 4 ký tự">
+          <input type="password" id="regPassword" placeholder="Mật khẩu mới">
         </div>
-        <button class="btn btn-gold" onclick="handleRegister()">TẠO TÀI KHOẢN & VÀO WEB</button>
+        <button class="btn btn-gold" onclick="handleRegister()">TẠO TÀI KHOẢN MỚI</button>
+        <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 14px;">
+          Đã có tài khoản? <a href="javascript:void(0)" onclick="toggleAuth(false)" style="color: var(--gold); font-weight:700;">Đăng nhập</a>
+        </p>
       </div>
     </div>
   </div>
 
-  <!-- ================= NỘI DUNG CHÍNH (MAIN APP) ================= -->
-  <div class="container" id="mainApp" style="display: none;">
-
-    <!-- Top Navigation -->
+  <div class="container" id="mainContent" style="display: none;">
     <div class="top-nav">
       <div class="user-pill">
         <span>👤</span>
@@ -420,48 +299,31 @@
         <span id="adminBadge" class="badge-admin" style="display: none;">ADMIN</span>
       </div>
       <div class="nav-btns">
-        <button id="adminBtn" class="btn-sm btn-admin" style="display: none;" onclick="openAdminModal()">
-          ⚙️ QUẢN TRỊ
-        </button>
-        <button class="btn-sm btn-logout" onclick="handleLogout()">
-          Đăng Xuất
-        </button>
+        <button id="adminBtn" class="btn-sm" style="display: none; background: var(--gold); color: #000;" onclick="openAdmin()">⚙️ QUẢN TRỊ</button>
+        <button class="btn-sm" style="background: rgba(255,255,255,0.1); color:#fff;" onclick="handleLogout()">Đăng Xuất</button>
       </div>
     </div>
 
-    <!-- Header -->
     <header>
-      <div class="badge-top">
-        <span class="pulsing-dot"></span> BẢO HÀNH CHÍNH CHỦ - UY TÍN
-      </div>
+      <div class="badge-top">Hệ Thống Kích Hoạt Bản Quyền</div>
       <h1>LOCKET GOLD TTRUC</h1>
-      <p class="sub">Hệ thống kích hoạt Gold & Filter bản quyền tự động</p>
+      <p class="sub">Tự động kích hoạt nhanh chóng - An toàn tuyệt đối</p>
     </header>
 
-    <!-- Hướng dẫn DNS iPhone -->
+    <!-- Hướng Dẫn DNS & Video -->
     <div class="card">
-      <div class="card-title">
-        <span>📖 HƯỚNG DẪN KÍCH HOẠT LOCKET GOLD</span>
-      </div>
+      <div class="card-title">📖 HƯỚNG DẪN KÍCH HOẠT LOCKET GOLD</div>
       <div class="dns-box">
-        <strong style="color: var(--gold);">⚡ QUY TRÌNH KÍCH HOẠT GOLD:</strong>
-        <p style="margin-top: 4px; font-size: 12px; color: var(--text-muted);">
-          1. Đặt đơn & quét VietQR MB Bank bên dưới.<br>
-          2. Cài đặt DNS cho iPhone theo 4 bước sau để máy nhận Gold:
-        </p>
-        <ol>
-          <li>Mở Safari, truy cập <a href="https://dns.coz.vn" target="_blank">https://dns.coz.vn</a> và bấm <strong>Cho phép</strong> khi máy hỏi tải hồ sơ.</li>
-          <li>Vào <strong>Cài đặt</strong> ➔ <strong>Đã tải hồ sơ</strong> ➔ <strong>Cài đặt</strong> ➔ nhập mật mã iPhone ➔ <strong>Cài đặt</strong>.</li>
-          <li>Vào <strong>Cài đặt</strong> ➔ <strong>Cài đặt chung</strong> ➔ <strong>Giới thiệu</strong> ➔ <strong>Cài đặt tin cậy chứng chỉ</strong>, bật <strong>LocketGold</strong> rồi nhấn <strong>Tiếp tục</strong>.</li>
-          <li>Tắt hoàn toàn Locket (vuốt tắt từ đa nhiệm) rồi mở lại để kiểm tra huy hiệu Gold.</li>
-        </ol>
-        <div style="background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.3); padding: 8px 10px; border-radius: 8px; font-size: 12px; color: #fca5a5; margin-bottom: 12px;">
-          <strong>⚠️ LƯU Ý QUAN TRỌNG:</strong> Không tắt hoặc xóa DNS và không tắt tin cậy chứng chỉ LocketGold. Nếu tắt/xóa, Gold có thể bị rớt. Nếu cài filter thì liên hệ admin <strong>Trung Trực</strong> để nhận DNS riêng.
-        </div>
+        <strong>⚡ QUY TRÌNH KÍCH HOẠT GOLD</strong><br><br>
+        <strong>📱 HƯỚNG DẪN CÀI DNS CHO IPHONE</strong><br>
+        1. Mở Safari, truy cập <a href="https://dns.coz.vn" target="_blank">https://dns.coz.vn</a> và bấm <strong>Cho phép</strong> khi máy hỏi tải hồ sơ.<br>
+        2. Vào <strong>Cài đặt</strong> ➔ <strong>Đã tải hồ sơ</strong> ➔ <strong>Cài đặt</strong> ➔ nhập mật khẩu iPhone ➔ <strong>Cài đặt</strong>.<br>
+        3. Vào <strong>Cài đặt</strong> ➔ <strong>Cài đặt chung</strong> ➔ <strong>Giới thiệu</strong> ➔ <strong>Cài đặt tin cậy chứng chỉ</strong>, bật <strong>LocketGold</strong> rồi nhấn <strong>Tiếp tục</strong>.<br>
+        4. Tắt hoàn toàn Locket rồi mở lại để kiểm tra Gold.<br><br>
+        <span style="color: #ef4444; font-weight: 700;">⚠️ LƯU Ý QUAN TRỌNG:</span> Không tắt hoặc xóa DNS và không tắt tin cậy chứng chỉ LocketGold. Nếu tắt/xóa, Gold có thể bị rớt và không còn hoạt động. Nếu cài filter thì liên hệ admin <strong>Trung Trực</strong> để nhận dns riêng.
 
-        <!-- Video phát hướng dẫn -->
-        <div style="border-radius: 10px; overflow: hidden; border: 1px solid rgba(245, 197, 24, 0.25); background: #000;">
-          <video id="dnsVideoPlayer" controls playsinline preload="metadata" style="width: 100%; max-height: 240px; display: block;">
+        <div class="video-container">
+          <video id="dnsVideoPlayer" controls playsinline preload="metadata" class="video-el">
             <source id="videoSource" src="./huong-dan.mp4" type="video/mp4">
             Trình duyệt của bạn không hỗ trợ phát video HTML5.
           </video>
@@ -469,395 +331,317 @@
       </div>
     </div>
 
-    <!-- Chọn gói & Thanh toán QR -->
+    <!-- Chọn gói dịch vụ -->
     <div class="card">
-      <div class="card-title">
-        <span>🛒 CHỌN GÓI DỊCH VỤ</span>
-        <span id="voucherNoticeTag" style="display: none; font-size: 11px; background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 2px 7px; border-radius: 6px;">
-          🎁 Đã áp dụng Voucher
-        </span>
-      </div>
+      <div class="card-title">🛒 CHỌN GÓI DỊCH VỤ</div>
+      
+      <div class="voucher-banner" id="voucherBanner"></div>
 
       <div class="packages">
         <div class="package-item active" onclick="selectPackage('1year', 40000, 'Locket Gold 1 Năm')">
           <div class="package-info">
             <div class="name">Locket Gold 1 Năm</div>
-            <div class="desc">Up video 15s, badge vàng, biểu tượng app VIP</div>
+            <div class="desc">Up video 15s, badge vàng, biểu tượng ứng dụng</div>
           </div>
-          <div class="price-num" id="pkgPrice-1year">40.000đ</div>
+          <div class="price-num" id="displayP1">40.000đ</div>
         </div>
 
         <div class="package-item" onclick="selectPackage('filter_1year', 15000, 'Unlock Toàn Bộ Filter')">
           <div class="package-info">
             <div class="name">Unlock Toàn Bộ Filter</div>
-            <div class="desc">Mở full tất cả các bộ lọc màu camera độc quyền</div>
+            <div class="desc">Mở full toàn bộ các bộ lọc màu Locket VIP</div>
           </div>
-          <div class="price-num" id="pkgPrice-filter_1year">15.000đ</div>
+          <div class="price-num" id="displayP2">15.000đ</div>
         </div>
 
         <div class="package-item" onclick="selectPackage('combo', 55000, 'Combo Gold 1 Năm + Full Filter')">
           <div class="package-info">
             <div class="name">Combo Gold 1 Năm + Full Filter</div>
-            <div class="desc">Trọn gói tất cả tính năng cao cấp nhất</div>
+            <div class="desc">Trọn gói toàn diện VIP nhất</div>
           </div>
-          <div class="price-num" id="pkgPrice-combo">55.000đ</div>
+          <div class="price-num" id="displayP3">55.000đ</div>
         </div>
       </div>
 
       <div class="form-group">
         <label for="locketUsername">Username hoặc Link Locket của bạn:</label>
-        <input type="text" id="locketUsername" placeholder="Ví dụ: truchihi hoặc dán link locket.cam/...">
+        <input type="text" id="locketUsername" placeholder="Nhập username hoặc dán link locket.cam/...">
       </div>
 
-      <button class="btn btn-gold" onclick="generateOrderAndQR()">TẠO MÃ THANH TOÁN VIETQR</button>
+      <button class="btn btn-gold" onclick="submitOrder()">TẠO MÃ THANH TOÁN VIETQR</button>
 
-      <!-- Khung Thanh Toán QR -->
+      <!-- Khung Thanh Toán VietQR -->
       <div class="qr-container" id="qrContainer">
         <div class="bank-info">
-          <div><strong>Ngân hàng:</strong> MB Bank (Quân Đội)</div>
-          <div><strong>Số tài khoản:</strong> <code style="color:var(--gold); font-size:14px; font-weight:800;">130120090685</code></div>
-          <div><strong>Chủ tài khoản:</strong> NGUYEN TRUNG TRUC</div>
-          <div><strong>Gói đã chọn:</strong> <span id="displaySelectedPkgName" style="color:var(--gold); font-weight:700;">Locket Gold 1 Năm</span></div>
-          <div><strong>Nội dung CK:</strong> <code id="payCode" style="color:var(--gold); font-weight:800; background:rgba(245,197,24,0.15); padding:1px 6px; border-radius:4px;"></code></div>
-          <div><strong>Số tiền:</strong> <span id="finalPriceText" style="color:#34d399; font-weight:800; font-size:15px;">40.000đ</span></div>
+          <strong>Ngân hàng:</strong> MB Bank (Quân Đội)<br>
+          <strong>Chủ tài khoản:</strong> NGUYEN TRUNG TRUC<br>
+          <strong>Số tài khoản:</strong> <code>130120090685</code><br>
+          <strong>Nội dung CK:</strong> <code id="payCode" style="color:var(--gold); font-weight:700;"></code><br>
+          <strong>Số tiền thanh toán:</strong> <span id="finalPriceText" style="color:var(--gold); font-weight:800; font-size:16px;"></span>
         </div>
         <img src="" id="vietQrImg" class="qr-img" alt="VietQR MB Bank">
-        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 6px;">
-          Quét mã bằng ứng dụng ngân hàng bất kỳ để chuyển khoản tự động.
-        </p>
-        <button class="btn btn-zalo" onclick="notifyZalo()">
-          📲 ĐÃ CHUYỂN KHOẢN XONG ➔ BÁO QUA ZALO
-        </button>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Quét mã bằng app ngân hàng để chuyển khoản đúng nội dung.</p>
+        <button class="btn btn-zalo" onclick="notifyZalo()">ĐÃ CHUYỂN KHOẢN XONG ➔ BÁO QUA ZALO</button>
       </div>
     </div>
 
-    <!-- Vòng Quay May Mắn -->
+    <!-- Vòng Quay May Mắn (9 ô chia đều) -->
     <div class="card" style="text-align: center;">
-      <div class="card-title" style="justify-content: center;">
-        <span>🎰 VÒNG QUAY MAY MẮN</span>
-      </div>
-      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
-        Mỗi tài khoản được quay 1 lần/tháng (tối đa 3 lần). Trúng voucher giảm giá ngay!
-      </p>
-
-      <div class="spin-stats">
-        <div>Lượt còn lại: <strong id="spinLeftText" style="color:var(--gold);">3/3</strong></div>
-        <div>Tháng này: <strong id="spinMonthText" style="color:#34d399;">Chưa quay</strong></div>
-      </div>
-
+      <div class="card-title" style="justify-content: center;">🎁 VÒNG QUAY MAY MẮN</div>
+      <p style="font-size: 13px; color: var(--text-muted);">Mỗi tài khoản được quay 1 lần/tháng (tối đa 3 lần)</p>
+      
       <div class="wheel-wrapper">
         <div class="pointer"></div>
-        <canvas id="wheelCanvas" width="280" height="280"></canvas>
+        <canvas id="wheelCanvas" width="290" height="290"></canvas>
       </div>
 
       <button class="btn btn-gold" id="spinBtn" onclick="spinWheel()">QUAY NGAY</button>
-      <div id="rewardAlert" style="display: none; margin-top: 10px; padding: 10px; border-radius: 8px; font-size: 12px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: #34d399;"></div>
+      <p id="spinNotice" style="font-size: 12px; color: var(--text-muted); margin-top: 8px;"></p>
     </div>
-
-    <!-- Footer -->
-    <footer style="text-align: center; font-size: 12px; color: var(--text-muted); padding: 16px 0;">
-      Hỗ trợ trực tiếp Zalo: <a href="https://zalo.me/0829047847" target="_blank" style="color: var(--gold); font-weight: 700; text-decoration: underline;">0829047847</a> (Nguyễn Trung Trực)<br>
-      © 2026 Locket Gold TTruc. Tất cả quyền được bảo lưu.
-    </footer>
   </div>
 
-  <!-- ================= BẢNG QUẢN TRỊ ADMIN (MODAL) ================= -->
+  <!-- Modal Admin -->
   <div class="modal" id="adminModal">
     <div class="modal-card">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); pb: 10px;">
-        <h3 style="color: var(--gold); font-size: 16px; font-weight: 800;">
-          👑 BẢNG QUẢN TRỊ ADMIN (TRUCHIHI)
-        </h3>
-        <span style="cursor: pointer; font-size: 20px; color: var(--text-muted);" onclick="closeAdminModal()">✕</span>
+      <div class="modal-header">
+        <h3 style="color: var(--gold); font-size: 17px;">BẢNG ĐIỀU KHIỂN QUẢN TRỊ ADMIN</h3>
+        <span style="cursor: pointer; font-size: 20px; color: var(--text-muted);" onclick="closeAdmin()">✕</span>
       </div>
 
-      <!-- Cài đặt API Coz -->
-      <div class="card" style="padding: 12px; margin-bottom: 14px; background: rgba(0,0,0,0.5);">
+      <div class="card" style="padding: 12px; margin-bottom: 14px; background: rgba(0,0,0,0.4);">
         <label>Cài đặt X-API-Key (Từ locket.coz.vn):</label>
-        <div style="display: flex; gap: 8px; margin-top: 4px;">
-          <input type="password" id="adminApiKeyInput" placeholder="Dán mã X-API-Key của bạn" onchange="saveApiKey()">
-          <button class="btn-sm btn-admin" style="white-space: nowrap;" onclick="saveApiKey()">LƯU KEY</button>
+        <div style="display: flex; gap: 8px;">
+          <input type="password" id="adminApiKey" placeholder="Dán mã X-API-Key">
+          <button class="btn-sm" style="background: var(--gold); color:#000; font-weight:700;" onclick="saveApiKey()">LƯU</button>
         </div>
-        <p style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">
-          Key được lưu an toàn trực tiếp trên trình duyệt của bạn (localStorage).
-        </p>
       </div>
 
-      <!-- Danh sách đơn hàng chờ kích hoạt -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-        <h4 style="font-size: 13px; color: var(--gold); font-weight: 700;">📦 DANH SÁCH ĐƠN HÀNG</h4>
-        <button class="btn-sm" style="background: rgba(255,255,255,0.08); color: #fff; font-size: 11px;" onclick="renderOrders()">Tải lại đơn</button>
-      </div>
-      <div id="orderListArea" style="max-height: 240px; overflow-y: auto; margin-bottom: 14px;">
-        <!-- Render đơn hàng JS -->
-      </div>
+      <h4 style="font-size: 14px; color: var(--gold); margin-bottom: 10px;">📦 DANH SÁCH ĐƠN HÀNG CẦN KÍCH HOẠT</h4>
+      <div id="orderListArea" style="max-height: 250px; overflow-y: auto; margin-bottom: 16px;"></div>
 
-      <!-- Lịch sử trúng thưởng vòng quay -->
-      <h4 style="font-size: 13px; color: var(--gold); font-weight: 700; margin-bottom: 8px;">🎁 LỊCH SỬ VÒNG QUAY MAY MẮN</h4>
-      <div id="spinHistoryArea" style="max-height: 160px; overflow-y: auto; background: rgba(0,0,0,0.4); border-radius: 8px; padding: 8px; font-size: 12px;">
-        <!-- Render lịch sử quay JS -->
-      </div>
+      <h4 style="font-size: 14px; color: var(--gold); margin-bottom: 10px;">🎁 LỊCH SỬ VÒNG QUAY</h4>
+      <div id="wheelHistoryArea" style="max-height: 180px; overflow-y: auto;"></div>
     </div>
   </div>
 
   <script>
-    // ================= DỮ LIỆU & STORAGE =================
-    const STORAGE_USERS = 'ttruc_users_db_v2';
-    const STORAGE_SESSION = 'ttruc_session_user_v2';
-    const STORAGE_ORDERS = 'ttruc_orders_v2';
-    const STORAGE_SPINS = 'ttruc_spins_v2';
-    const STORAGE_API_KEY = 'coz_api_key';
-
-    let currentUser = null;
-    let selectedPkg = { id: '1year', name: 'Locket Gold 1 Năm', price: 40000 };
-    let currentVoucher = null; // { text, type: 'fixed'|'percent'|'none', val }
-
-    // 9 Ô Vòng quay: 4 ô May Mắn, 1 ô Giảm 50%, 2 ô Giảm 5k, 2 ô Giảm 10k
+    // Cấu hình 9 ô: 4 ô May Mắn, 1 ô Giảm 50%, 2 ô Giảm 5k, 2 ô Giảm 10k
     const slices = [
-      { text: 'Giảm 5k', type: 'fixed', val: 5000, color: '#f59e0b' },
+      { text: 'Giảm 5k', type: 'fixed', val: 5000, color: '#ffaa00' },
       { text: 'May Mắn Lần Sau', type: 'none', val: 0, color: '#16161c' },
       { text: 'Giảm 10k', type: 'fixed', val: 10000, color: '#ffd700' },
       { text: 'May Mắn Lần Sau', type: 'none', val: 0, color: '#16161c' },
       { text: 'Giảm 50%', type: 'percent', val: 0.5, color: '#ef4444' },
       { text: 'May Mắn Lần Sau', type: 'none', val: 0, color: '#16161c' },
-      { text: 'Giảm 5k', type: 'fixed', val: 5000, color: '#f59e0b' },
+      { text: 'Giảm 5k', type: 'fixed', val: 5000, color: '#ffaa00' },
       { text: 'May Mắn Lần Sau', type: 'none', val: 0, color: '#16161c' },
       { text: 'Giảm 10k', type: 'fixed', val: 10000, color: '#ffd700' }
     ];
 
+    let currentPkg = { id: '1year', name: 'Locket Gold 1 Năm', price: 40000 };
+    let currentUser = null;
+    let activeVoucher = null; // { type: 'fixed'|'percent', val: number, text: string }
+
     window.onload = function() {
       initDatabase();
+      checkSession();
       drawWheel(0);
-      checkUserSession();
     };
 
     function initDatabase() {
-      let users = JSON.parse(localStorage.getItem(STORAGE_USERS) || '{}');
-      if (!users['truchihi']) {
-        users['truchihi'] = { pass: 'trungtruc131', spins: 0, lastMonth: null, isAdmin: true };
-        localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
+      if (!localStorage.getItem('ttruc_users')) {
+        const defaultUsers = {
+          'truchihi': { pass: 'trungtruc131', spins: 0, lastSpinMonth: -1, isAdmin: true }
+        };
+        localStorage.setItem('ttruc_users', JSON.stringify(defaultUsers));
       }
-      if (!localStorage.getItem(STORAGE_ORDERS)) {
-        // Mẫu đơn hàng giả lập ban đầu để bạn xem trước
-        localStorage.setItem(STORAGE_ORDERS, JSON.stringify([
-          {
-            id: 'DH-89214',
-            userAccount: 'khachhang_demo',
-            locketUser: 'minhthu_cutie',
-            packageId: '1year',
-            packageName: 'Locket Gold 1 Năm',
-            amount: 40000,
-            status: 'pending',
-            time: 'Hôm nay, 14:20'
-          }
-        ]));
+      if (!localStorage.getItem('ttruc_orders')) {
+        localStorage.setItem('ttruc_orders', JSON.stringify([]));
       }
-      if (!localStorage.getItem(STORAGE_SPINS)) {
-        localStorage.setItem(STORAGE_SPINS, JSON.stringify([]));
+      if (!localStorage.getItem('ttruc_spins')) {
+        localStorage.setItem('ttruc_spins', JSON.stringify([]));
       }
     }
 
-    // Auth Switch
-    function switchAuthTab(tab) {
-      const isLogin = (tab === 'login');
-      document.getElementById('loginFormSection').style.display = isLogin ? 'block' : 'none';
-      document.getElementById('registerFormSection').style.display = isLogin ? 'none' : 'block';
-      document.getElementById('tabBtnLogin').className = isLogin ? 'auth-tab-btn active' : 'auth-tab-btn';
-      document.getElementById('tabBtnRegister').className = isLogin ? 'auth-tab-btn' : 'auth-tab-btn active';
-      document.getElementById('authSubtitle').innerText = isLogin ? 'Vui lòng đăng nhập để sử dụng hệ thống' : 'Tạo tài khoản thành viên mới trong vài giây';
-    }
-
-    function fillAdminCredentials() {
-      document.getElementById('loginUsername').value = 'truchihi';
-      document.getElementById('loginPassword').value = 'trungtruc131';
+    function toggleAuth(isReg) {
+      document.getElementById('loginSection').style.display = isReg ? 'none' : 'block';
+      document.getElementById('registerSection').style.display = isReg ? 'block' : 'none';
+      document.getElementById('authSubtitle').innerText = isReg ? 'Tạo tài khoản thành viên mới' : 'Đăng nhập tài khoản để vào trang web';
     }
 
     function handleLogin() {
-      const u = document.getElementById('loginUsername').value.trim().toLowerCase();
+      const u = document.getElementById('loginUsername').value.trim();
       const p = document.getElementById('loginPassword').value.trim();
-      const users = JSON.parse(localStorage.getItem(STORAGE_USERS) || '{}');
+      const users = JSON.parse(localStorage.getItem('ttruc_users'));
 
       if (users[u] && users[u].pass === p) {
-        localStorage.setItem(STORAGE_SESSION, u);
-        checkUserSession();
+        localStorage.setItem('ttruc_session', u);
+        checkSession();
       } else {
-        alert('Tên đăng nhập hoặc mật khẩu không chính xác!');
+        alert('Sai tên đăng nhập hoặc mật khẩu!');
       }
     }
 
     function handleRegister() {
-      const u = document.getElementById('regUsername').value.trim().toLowerCase();
+      const u = document.getElementById('regUsername').value.trim();
       const p = document.getElementById('regPassword').value.trim();
+      if (!u || !p) return alert('Vui lòng điền đủ tên và mật khẩu!');
 
-      if (!u || !p) return alert('Vui lòng nhập đầy đủ tên và mật khẩu!');
-      if (p.length < 4) return alert('Mật khẩu phải từ 4 ký tự trở lên!');
+      const users = JSON.parse(localStorage.getItem('ttruc_users'));
+      if (users[u]) return alert('Tên đăng nhập này đã tồn tại!');
 
-      const users = JSON.parse(localStorage.getItem(STORAGE_USERS) || '{}');
-      if (users[u]) return alert('Tên tài khoản này đã được đăng ký!');
-
-      users[u] = { pass: p, spins: 0, lastMonth: null, isAdmin: false };
-      localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
-      localStorage.setItem(STORAGE_SESSION, u);
-      alert('Đăng ký tài khoản thành công!');
-      checkUserSession();
+      users[u] = { pass: p, spins: 0, lastSpinMonth: -1, isAdmin: false };
+      localStorage.setItem('ttruc_users', JSON.stringify(users));
+      localStorage.setItem('ttruc_session', u);
+      alert('Đăng ký thành công!');
+      checkSession();
     }
 
-    function checkUserSession() {
-      const session = localStorage.getItem(STORAGE_SESSION);
+    function checkSession() {
+      const session = localStorage.getItem('ttruc_session');
       if (session) {
         currentUser = session;
-        const users = JSON.parse(localStorage.getItem(STORAGE_USERS) || '{}');
+        const users = JSON.parse(localStorage.getItem('ttruc_users'));
         const uData = users[session] || {};
 
         document.getElementById('authGate').style.display = 'none';
-        document.getElementById('mainApp').style.display = 'block';
+        document.getElementById('mainContent').style.display = 'block';
         document.getElementById('currentUserName').innerText = currentUser;
 
-        const isAdmin = (session === 'truchihi' || uData.isAdmin);
-        document.getElementById('adminBadge').style.display = isAdmin ? 'inline-block' : 'none';
-        document.getElementById('adminBtn').style.display = isAdmin ? 'inline-block' : 'none';
-
-        updateSpinUI();
+        if (uData.isAdmin || currentUser === 'truchihi') {
+          document.getElementById('adminBadge').style.display = 'inline-block';
+          document.getElementById('adminBtn').style.display = 'inline-block';
+        } else {
+          document.getElementById('adminBadge').style.display = 'none';
+          document.getElementById('adminBtn').style.display = 'none';
+        }
+        updatePriceDisplays();
       } else {
         document.getElementById('authGate').style.display = 'flex';
-        document.getElementById('mainApp').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'none';
       }
     }
 
     function handleLogout() {
-      localStorage.removeItem(STORAGE_SESSION);
+      localStorage.removeItem('ttruc_session');
       location.reload();
     }
-    function calculateFinalPrice(basePrice = selectedPkg.price) {
-      if (!currentVoucher || currentVoucher.type === 'none') return basePrice;
-      if (currentVoucher.type === 'fixed') return Math.max(0, basePrice - currentVoucher.val);
-      if (currentVoucher.type === 'percent') return Math.max(0, Math.round(basePrice * (1 - currentVoucher.val)));
+
+    function calculateFinalPrice(basePrice) {
+      if (!activeVoucher || activeVoucher.type === 'none') return basePrice;
+      if (activeVoucher.type === 'fixed') return Math.max(0, basePrice - activeVoucher.val);
+      if (activeVoucher.type === 'percent') return Math.max(0, Math.round(basePrice * (1 - activeVoucher.val)));
       return basePrice;
     }
 
-    function updatePriceDisplay() {
-      document.getElementById('displaySelectedPkgName').innerText = selectedPkg.name;
-      const finalPrice = calculateFinalPrice();
-      document.getElementById('finalPriceText').innerText = finalPrice.toLocaleString('vi-VN') + 'đ';
+    function updatePriceDisplays() {
+      document.getElementById('displayP1').innerText = calculateFinalPrice(40000).toLocaleString() + 'đ';
+      document.getElementById('displayP2').innerText = calculateFinalPrice(15000).toLocaleString() + 'đ';
+      document.getElementById('displayP3').innerText = calculateFinalPrice(55000).toLocaleString() + 'đ';
 
-      // Cập nhật giá trên từng nút gói
-      document.getElementById('pkgPrice-1year').innerText = calculateFinalPrice(40000).toLocaleString('vi-VN') + 'đ';
-      document.getElementById('pkgPrice-filter_1year').innerText = calculateFinalPrice(15000).toLocaleString('vi-VN') + 'đ';
-      document.getElementById('pkgPrice-combo').innerText = calculateFinalPrice(55000).toLocaleString('vi-VN') + 'đ';
-
-      const notice = document.getElementById('voucherNoticeTag');
-      if (currentVoucher && currentVoucher.type !== 'none') {
-        notice.style.display = 'inline-block';
-        notice.innerText = `🎁 Đã áp dụng: ${currentVoucher.text}`;
+      const banner = document.getElementById('voucherBanner');
+      if (activeVoucher && activeVoucher.type !== 'none') {
+        banner.style.display = 'block';
+        banner.innerText = `🎉 Đang áp dụng Voucher: [${activeVoucher.text}] - Giá đã được giảm trực tiếp!`;
       } else {
-        notice.style.display = 'none';
+        banner.style.display = 'none';
       }
     }
 
-    function generateOrderAndQR() {
-      const user = document.getElementById('locketUsername').value.trim();
-      if (!user) return alert('Vui lòng nhập Username hoặc Link Locket của bạn!');
+    function selectPackage(id, price, name) {
+      document.querySelectorAll('.package-item').forEach(el => el.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      currentPkg = { id, price, name };
+      if (document.getElementById('qrContainer').style.display === 'block') {
+        submitOrder();
+      }
+    }
 
-      let cleanUser = user.replace(/https?:\/\/locket\.cam\//gi, '').replace(/[^a-zA-Z0-9_]/g, '');
-      if (!cleanUser) cleanUser = 'LOCKETGOLD';
-      cleanUser = cleanUser.toUpperCase();
+    function submitOrder() {
+      const input = document.getElementById('locketUsername').value.trim();
+      if (!input) return alert('Vui lòng nhập Username hoặc Link Locket của bạn!');
 
-      const finalPrice = calculateFinalPrice();
-      document.getElementById('payCode').innerText = cleanUser;
-      updatePriceDisplay();
+      let cleanUser = input.replace('https://locket.cam/', '').replace('/', '').replace(/[^a-zA-Z0-9_]/g, '');
+      const finalPrice = calculateFinalPrice(currentPkg.price);
 
-      // VietQR MB Bank
-      const qrUrl = `https://img.vietqr.io/image/970422-130120090685-compact2.png?amount=${finalPrice}&addInfo=${encodeURIComponent(cleanUser)}&accountName=NGUYEN%20TRUNG%20TRUC`;
+      document.getElementById('payCode').innerText = cleanUser.toUpperCase();
+      document.getElementById('finalPriceText').innerText = finalPrice.toLocaleString() + 'đ';
+
+      const qrUrl = `https://img.vietqr.io/image/970422-130120090685-compact2.png?amount=${finalPrice}&addInfo=${encodeURIComponent(cleanUser.toUpperCase())}&accountName=NGUYEN%20TRUNG%20TRUC`;
       document.getElementById('vietQrImg').src = qrUrl;
       document.getElementById('qrContainer').style.display = 'block';
       document.getElementById('qrContainer').scrollIntoView({ behavior: 'smooth' });
 
-      // Lưu đơn mới vào hàng chờ của Admin
-      const orders = JSON.parse(localStorage.getItem(STORAGE_ORDERS) || '[]');
-      const newOrder = {
-        id: 'DH-' + Math.floor(10000 + Math.random() * 90000),
+      // Lưu đơn vào quản trị
+      const orders = JSON.parse(localStorage.getItem('ttruc_orders'));
+      orders.unshift({
+        id: 'DH-' + Date.now().toString().slice(-6),
         userAccount: currentUser,
         locketUser: cleanUser,
-        packageId: selectedPkg.id,
-        packageName: selectedPkg.name,
+        packageId: currentPkg.id,
+        packageName: currentPkg.name,
         amount: finalPrice,
         status: 'pending',
-        time: new Date().toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'}) + ', ' + new Date().toLocaleDateString('vi-VN')
-      };
-      orders.unshift(newOrder);
-      localStorage.setItem(STORAGE_ORDERS, JSON.stringify(orders));
+        time: new Date().toLocaleString('vi-VN')
+      });
+      localStorage.setItem('ttruc_orders', JSON.stringify(orders));
     }
 
     function notifyZalo() {
-      const user = document.getElementById('locketUsername').value.trim();
-      const finalPrice = calculateFinalPrice();
-      const msg = `Chào Shop! Mình vừa chuyển khoản MB Bank mua gói Locket:%0A- Tài khoản web: ${encodeURIComponent(currentUser)}%0A- Gói: ${encodeURIComponent(selectedPkg.name)}%0A- Số tiền: ${finalPrice.toLocaleString('vi-VN')}đ%0A- Username Locket: ${encodeURIComponent(user)}%0ANhờ shop duyệt và kích hoạt giúp mình nhé!`;
-      window.open(`https://zalo.me/0829047847?text=${msg}`, '_blank');
+      const input = document.getElementById('locketUsername').value.trim();
+      const finalPrice = calculateFinalPrice(currentPkg.price);
+      const text = `Chào Shop! Mình vừa chuyển khoản mua dịch vụ Locket:%0A- Gói: ${encodeURIComponent(currentPkg.name)}%0A- Số tiền: ${finalPrice.toLocaleString()}đ%0A- Username Locket: ${encodeURIComponent(input)}%0ANhờ shop kiểm tra và kích hoạt giúp mình nhé!`;
+      window.open(`https://zalo.me/0829047847?text=${text}`, '_blank');
     }
 
-    // ================= VÒNG QUAY MAY MẮN =================
+    // VẼ VÒNG QUAY 9 Ô
     function drawWheel(angle) {
       const canvas = document.getElementById('wheelCanvas');
       const ctx = canvas.getContext('2d');
-      const arc = (2 * Math.PI) / slices.length;
+      const numSlices = slices.length;
+      const arc = (2 * Math.PI) / numSlices;
       ctx.clearRect(0, 0, 290, 290);
 
-      for (let i = 0; i < slices.length; i++) {
+      for (let i = 0; i < numSlices; i++) {
         const sliceAngle = angle + i * arc;
         ctx.beginPath();
         ctx.fillStyle = slices[i].color;
         ctx.moveTo(145, 145);
-        ctx.arc(145, 145, 138, sliceAngle, sliceAngle + arc);
+        ctx.arc(145, 145, 140, sliceAngle, sliceAngle + arc);
         ctx.lineTo(145, 145);
         ctx.fill();
-
-        ctx.strokeStyle = 'rgba(255, 215, 0, 0.3)';
         ctx.lineWidth = 1.5;
+        ctx.strokeStyle = 'rgba(255, 215, 0, 0.4)';
         ctx.stroke();
 
         ctx.save();
         ctx.translate(145, 145);
         ctx.rotate(sliceAngle + arc / 2);
-        ctx.fillStyle = (slices[i].color === '#16161c') ? '#ffd700' : '#000';
+        ctx.fillStyle = slices[i].color === '#16161c' ? '#ffd700' : '#000';
         ctx.font = 'bold 11px Plus Jakarta Sans';
         ctx.textAlign = 'right';
-        ctx.fillText(slices[i].text, 126, 4);
+        ctx.fillText(slices[i].text, 130, 4);
         ctx.restore();
       }
-    }
-
-    function updateSpinUI() {
-      if (!currentUser) return;
-      const users = JSON.parse(localStorage.getItem(STORAGE_USERS) || '{}');
-      const uData = users[currentUser] || { spins: 0, lastMonth: null };
-      const left = Math.max(0, 3 - (uData.spins || 0));
-      document.getElementById('spinLeftText').innerText = `${left}/3`;
-
-      const currentMonth = new Date().getMonth();
-      const spunThisMonth = (uData.lastMonth === currentMonth);
-      document.getElementById('spinMonthText').innerText = spunThisMonth ? 'Đã quay' : 'Chưa quay';
-      document.getElementById('spinMonthText').style.color = spunThisMonth ? '#f59e0b' : '#34d399';
     }
 
     let isSpinning = false;
     function spinWheel() {
       if (isSpinning) return;
-      const users = JSON.parse(localStorage.getItem(STORAGE_USERS) || '{}');
+      const users = JSON.parse(localStorage.getItem('ttruc_users'));
       const uData = users[currentUser];
       const currentMonth = new Date().getMonth();
 
-      if ((uData.spins || 0) >= 3) return alert('Bạn đã sử dụng hết tối đa 3 lần quay!');
-      if (uData.lastMonth === currentMonth) return alert('Mỗi tháng bạn chỉ được quay 1 lần! Hãy quay lại vào tháng sau.');
+      if (uData.spins >= 3) return alert('Bạn đã dùng hết tối đa 3 lượt quay!');
+      if (uData.lastSpinMonth === currentMonth) return alert('Mỗi tháng bạn chỉ được quay 1 lần!');
 
       isSpinning = true;
-      document.getElementById('spinBtn').disabled = true;
-
-      // Tính tỷ lệ trúng thưởng
       const rand = Math.random() * 100;
       let targetIndex = 1; // Mặc định May mắn
 
+      // Logic tỷ lệ trúng thưởng
       if (currentUser === 'truchihi') {
-        // truchihi: Giảm 50% (50%), Giảm 10k (20%), Giảm 5k (10%), May mắn (20%)
+        // truchihi: Giảm 5k (10%), Giảm 10k (20%), Giảm 50% (50%), May mắn (20%)
         if (rand < 50) {
           targetIndex = 4; // Ô Giảm 50%
         } else if (rand < 70) {
@@ -865,11 +649,11 @@
         } else if (rand < 80) {
           targetIndex = Math.random() < 0.5 ? 0 : 6; // 2 ô Giảm 5k
         } else {
-          const mayManIdxs = [1, 3, 5, 7]; // 4 ô May mắn
-          targetIndex = mayManIdxs[Math.floor(Math.random() * mayManIdxs.length)];
+          const mayManList = [1, 3, 5, 7]; // 4 ô May mắn
+          targetIndex = mayManList[Math.floor(Math.random() * mayManList.length)];
         }
       } else {
-        // Thường: Giảm 5k (30%), Giảm 10k (30%), Giảm 50% (10%), May mắn (30%)
+        // Tài khoản thường: Giảm 5k (30%), Giảm 10k (30%), Giảm 50% (10%), May mắn (30%)
         if (rand < 10) {
           targetIndex = 4; // Ô Giảm 50%
         } else if (rand < 40) {
@@ -877,159 +661,133 @@
         } else if (rand < 70) {
           targetIndex = Math.random() < 0.5 ? 0 : 6; // 2 ô Giảm 5k
         } else {
-          const mayManIdxs = [1, 3, 5, 7]; // 4 ô May mắn
-          targetIndex = mayManIdxs[Math.floor(Math.random() * mayManIdxs.length)];
+          const mayManList = [1, 3, 5, 7]; // 4 ô May mắn
+          targetIndex = mayManList[Math.floor(Math.random() * mayManList.length)];
         }
       }
 
-      // Kim ở góc 270 độ (đỉnh trên cùng 12h)
-      const sliceDeg = 360 / slices.length;
+      // Kim chỉ ở đỉnh 12h (270 độ). Tính góc dừng để ô targetIndex nằm ngay dưới kim:
+      const sliceDeg = 360 / 9;
       const targetCenterDeg = targetIndex * sliceDeg + sliceDeg / 2;
       const stopAngle = (270 - targetCenterDeg + 360) % 360;
-      const totalRot = 360 * 6 + stopAngle;
+      const totalRotation = 360 * 6 + stopAngle;
+
       const startTime = performance.now();
 
       function animate(time) {
         const elapsed = time - startTime;
         const progress = Math.min(elapsed / 4500, 1);
         const ease = 1 - Math.pow(1 - progress, 3);
-        const currentRad = (totalRot * ease * Math.PI) / 180;
-        drawWheel(currentRad);
+        const currentRot = (totalRotation * ease * Math.PI) / 180;
+        drawWheel(currentRot);
 
         if (progress < 1) {
           requestAnimationFrame(animate);
         } else {
           isSpinning = false;
-          document.getElementById('spinBtn').disabled = false;
-
-          // Cập nhật lượt quay
-          uData.spins = (uData.spins || 0) + 1;
-          uData.lastMonth = currentMonth;
+          uData.spins += 1;
+          uData.lastSpinMonth = currentMonth;
           users[currentUser] = uData;
-          localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
-          updateSpinUI();
+          localStorage.setItem('ttruc_users', JSON.stringify(users));
 
-          const prize = slices[targetIndex];
-          const alertBox = document.getElementById('rewardAlert');
+          const item = slices[targetIndex];
 
-          // Lưu lịch sử
-          const spinsLog = JSON.parse(localStorage.getItem(STORAGE_SPINS) || '[]');
-          spinsLog.unshift({
-            user: currentUser,
-            reward: prize.text,
-            time: new Date().toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'}) + ', ' + new Date().toLocaleDateString('vi-VN')
-          });
-          localStorage.setItem(STORAGE_SPINS, JSON.stringify(spinsLog));
-
-          if (prize.type !== 'none') {
-            currentVoucher = prize;
-            alertBox.style.display = 'block';
-            alertBox.style.color = '#34d399';
-            alertBox.style.borderColor = 'rgba(16, 185, 129, 0.3)';
-            alertBox.style.background = 'rgba(16, 185, 129, 0.15)';
-            alertBox.innerHTML = `🎉 <strong>Chúc mừng!</strong> Bạn đã trúng: <strong>${prize.text}</strong>! Giá gói dịch vụ đã được giảm trực tiếp ngay lập tức.`;
-
-            // Áp dụng giảm ngay và cập nhật mã QR
-            updatePriceDisplay();
-            if (document.getElementById('qrContainer').style.display === 'block') {
-              generateOrderAndQR();
-            }
-            alert(`🎉 CHÚC MỪNG!\nBạn đã quay trúng: [${prize.text}]! Ưu đãi đã tự động giảm trừ vào bảng thanh toán.`);
+          // Áp dụng voucher hoặc không giảm
+          if (item.type !== 'none') {
+            activeVoucher = { type: item.type, val: item.val, text: item.text };
+            alert(`🎉 Chúc mừng bạn đã quay trúng: [${item.text}]! Giá đơn hàng đã được giảm trực tiếp.`);
           } else {
-            currentVoucher = null;
-            alertBox.style.display = 'block';
-            alertBox.style.color = '#facc15';
-            alertBox.style.borderColor = 'rgba(234, 179, 8, 0.3)';
-            alertBox.style.background = 'rgba(234, 179, 8, 0.15)';
-            alertBox.innerHTML = `🍀 Rất tiếc, bạn đã quay vào ô: <strong>${prize.text}</strong>. Hãy quay lại vào tháng tới nhé!`;
-            updatePriceDisplay();
-            alert(`😢 Rất tiếc, bạn đã quay vào ô: [${prize.text}]. Hãy thử lại vào tháng sau nhé!`);
+            activeVoucher = null;
+            alert(`😢 Rất tiếc, bạn đã quay vào ô: [${item.text}]. Hãy thử lại vào tháng sau nhé!`);
           }
+
+          // Cập nhật giá và QR nếu đang mở
+          updatePriceDisplays();
+          if (document.getElementById('qrContainer').style.display === 'block') {
+            submitOrder();
+          }
+
+          // Lưu lịch sử quay
+          const spinLogs = JSON.parse(localStorage.getItem('ttruc_spins'));
+          spinLogs.unshift({ user: currentUser, reward: item.text, time: new Date().toLocaleString('vi-VN') });
+          localStorage.setItem('ttruc_spins', JSON.stringify(spinLogs));
         }
       }
       requestAnimationFrame(animate);
     }
 
-    // ================= BẢNG QUẢN TRỊ ADMIN =================
-    function openAdminModal() {
+    // QUẢN TRỊ ADMIN
+    function openAdmin() {
       document.getElementById('adminModal').style.display = 'flex';
-      document.getElementById('adminApiKeyInput').value = localStorage.getItem(STORAGE_API_KEY) || '';
+      document.getElementById('adminApiKey').value = localStorage.getItem('coz_api_key') || '';
       renderOrders();
       renderSpinHistory();
     }
 
-    function closeAdminModal() {
+    function closeAdmin() {
       document.getElementById('adminModal').style.display = 'none';
     }
 
     function saveApiKey() {
-      const key = document.getElementById('adminApiKeyInput').value.trim();
-      localStorage.setItem(STORAGE_API_KEY, key);
-      alert('Đã lưu mã X-API-Key thành công trên trình duyệt!');
+      const key = document.getElementById('adminApiKey').value.trim();
+      localStorage.setItem('coz_api_key', key);
+      alert('Đã lưu API Key an toàn trên trình duyệt!');
     }
 
     function renderOrders() {
-      const orders = JSON.parse(localStorage.getItem(STORAGE_ORDERS) || '[]');
-      const container = document.getElementById('orderListArea');
+      const orders = JSON.parse(localStorage.getItem('ttruc_orders')) || [];
+      const area = document.getElementById('orderListArea');
       if (orders.length === 0) {
-        container.innerHTML = '<p style="color:var(--text-muted); font-size:12px; text-align:center; padding:12px;">Chưa có đơn hàng nào.</p>';
+        area.innerHTML = '<p style="color:var(--text-muted); font-size:13px;">Chưa có đơn hàng nào.</p>';
         return;
       }
 
-      container.innerHTML = orders.map((o, idx) => `
+      area.innerHTML = orders.map((o, idx) => `
         <div class="order-box">
           <div class="order-row">
-            <div>
-              <strong style="color:#fff;">${o.id}</strong> - <span style="color:var(--gold); font-weight:700;">${o.locketUser}</span>
-            </div>
+            <strong>${o.id} - ${o.locketUser}</strong>
             <span class="status-badge ${o.status === 'active' ? 'status-done' : 'status-pending'}">
               ${o.status === 'active' ? 'Đã cấp Gold' : 'Chờ duyệt'}
             </span>
           </div>
-          <div class="order-row" style="color:var(--text-muted); font-size:11px;">
-            <span>${o.packageName} (${o.amount.toLocaleString('vi-VN')}đ)</span>
+          <div class="order-row" style="color:var(--text-muted);">
+            <span>${o.packageName} (${o.amount.toLocaleString()}đ)</span>
             <span>${o.time}</span>
           </div>
           ${o.status !== 'active' ? `
-            <button class="btn-sm btn-admin" style="width:100%; margin-top:8px;" onclick="autoGrantOrder(${idx})">
+            <button class="btn-sm" style="background:var(--gold); color:#000; margin-top:8px; width:100%; font-weight:700;" onclick="autoGrantOrder(${idx})">
               ⚡ KÍCH HOẠT GOLD QUA API COZ
             </button>
-          ` : `
-            <div style="font-size:11px; color:#34d399; margin-top:6px;">✓ Đã được máy chủ duyệt thành công</div>
-          `}
+          ` : ''}
         </div>
       `).join('');
     }
 
     function renderSpinHistory() {
-      const spins = JSON.parse(localStorage.getItem(STORAGE_SPINS) || '[]');
-      const container = document.getElementById('spinHistoryArea');
+      const spins = JSON.parse(localStorage.getItem('ttruc_spins')) || [];
+      const area = document.getElementById('wheelHistoryArea');
       if (spins.length === 0) {
-        container.innerHTML = '<p style="color:var(--text-muted); text-align:center;">Chưa có lượt quay nào.</p>';
+        area.innerHTML = '<p style="color:var(--text-muted); font-size:13px;">Chưa có lượt quay nào.</p>';
         return;
       }
-
-      container.innerHTML = spins.map(s => `
-        <div style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
-          <span><strong>${s.user}</strong>: <span style="color:var(--gold);">${s.reward}</span></span>
-          <span style="color:var(--text-muted); font-size:11px;">${s.time}</span>
+      area.innerHTML = spins.map(s => `
+        <div style="font-size:12px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between;">
+          <span><strong>${s.user}</strong>: ${s.reward}</span>
+          <span style="color:var(--text-muted);">${s.time}</span>
         </div>
       `).join('');
     }
 
-    // Tự động gọi API Coz
     async function autoGrantOrder(idx) {
-      const apiKey = localStorage.getItem(STORAGE_API_KEY);
-      if (!apiKey) {
-        return alert('Vui lòng nhập và bấm LƯU KEY mã X-API-Key của bên coz.vn trước!');
-      }
+      const apiKey = localStorage.getItem('coz_api_key');
+      if (!apiKey) return alert('Vui lòng nhập và Lưu X-API-Key của bạn trước!');
 
-      const orders = JSON.parse(localStorage.getItem(STORAGE_ORDERS) || '[]');
+      const orders = JSON.parse(localStorage.getItem('ttruc_orders'));
       const order = orders[idx];
 
-      if (!confirm(`Xác nhận gọi API Coz cấp Gold cho tài khoản: ${order.locketUser}?`)) return;
+      if (!confirm(`Xác nhận kích hoạt gói cho nick: ${order.locketUser}?`)) return;
 
-      const idempotencyKey = 'req-' + Date.now();
+      const idempotencyKey = 'order-' + Date.now();
 
       try {
         const res = await fetch('https://locket.coz.vn/api/v1/grant', {
@@ -1051,22 +809,15 @@
 
         const data = await res.json();
         if (res.ok && (data.success || data.data)) {
-          alert(`✅ Cấp Gold thành công cho khách [${order.locketUser}]!`);
+          alert(`✅ Cấp Gold thành công cho ${order.locketUser}!`);
           orders[idx].status = 'active';
-          localStorage.setItem(STORAGE_ORDERS, JSON.stringify(orders));
+          localStorage.setItem('ttruc_orders', JSON.stringify(orders));
           renderOrders();
         } else {
-          alert(`❌ Coz báo lỗi: ${data.message || 'Kiểm tra lại số lượt CTV của bạn!'}`);
+          alert(`❌ Lỗi từ coz.vn: ${data.message || 'Kiểm tra lại số lượt CTV của bạn!'}`);
         }
       } catch (err) {
-        // Trường hợp bị chặn CORS do chạy trực tiếp trên browser không có proxy
-        const testMode = confirm('⚠️ Trình duyệt chặn kết nối trực tiếp (CORS) tới coz.vn.\nBạn có muốn mô phỏng duyệt thành công đơn hàng này để kiểm tra quy trình không?');
-        if (testMode) {
-          orders[idx].status = 'active';
-          localStorage.setItem(STORAGE_ORDERS, JSON.stringify(orders));
-          renderOrders();
-          alert(`✅ Đã mô phỏng cấp Gold thành công cho khách [${order.locketUser}]!`);
-        }
+        alert('Lỗi kết nối API: Trình duyệt có thể đã chặn kết nối trực tiếp. Vui lòng kiểm tra lại mạng hoặc API Key!');
       }
     }
   </script>
