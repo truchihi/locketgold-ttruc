@@ -237,29 +237,31 @@
 </head>
 <body>
 
-  <!-- Modal Đăng nhập / Đăng ký -->
+  <!-- CỬA SỔ ĐĂNG NHẬP / ĐĂNG KÝ BẮT BUỘC -->
   <div class="modal" id="authGate" style="display: flex;">
     <div class="modal-card">
       <div style="text-align: center; margin-bottom: 16px;">
         <h2 style="color: var(--gold); font-size: 20px; margin-bottom: 4px;">LOCKET GOLD TTRUC</h2>
-        <p style="font-size: 13px; color: var(--text-muted);" id="authSubtitle">Đăng nhập tài khoản để vào trang web</p>
+        <p style="font-size: 13px; color: var(--text-muted);" id="authSubtitle">Đăng nhập tài khoản để vào hệ thống</p>
       </div>
 
+      <!-- Khu vực Đăng Nhập -->
       <div id="loginSection">
         <div class="form-group">
           <label>Tên đăng nhập:</label>
-          <input type="text" id="loginUsername" placeholder="Nhập tên đăng nhập">
+          <input type="text" id="loginUsername" value="truchihi" placeholder="Nhập tên đăng nhập">
         </div>
         <div class="form-group">
           <label>Mật khẩu:</label>
-          <input type="password" id="loginPassword" placeholder="Nhập mật khẩu">
+          <input type="password" id="loginPassword" value="trungtruc131" placeholder="Nhập mật khẩu">
         </div>
-        <button class="btn btn-gold" onclick="handleLogin()">ĐĂNG NHẬP VÀO WEB</button>
+        <button class="btn btn-gold" id="loginBtn" onclick="handleLogin()">ĐĂNG NHẬP VÀO WEB</button>
         <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 14px;">
           Chưa có tài khoản? <a href="javascript:void(0)" onclick="toggleAuth(true)" style="color: var(--gold); font-weight:700;">Đăng ký ngay</a>
         </p>
       </div>
 
+      <!-- Khu vực Đăng Ký -->
       <div id="registerSection" style="display: none;">
         <div class="form-group">
           <label>Tạo tên đăng nhập:</label>
@@ -277,6 +279,7 @@
     </div>
   </div>
 
+  <!-- NỘI DUNG CHÍNH CỦA TRANG WEB -->
   <div class="container" id="mainContent" style="display: none;">
     <div class="top-nav">
       <div class="user-pill">
@@ -387,12 +390,9 @@
         <span style="cursor: pointer; font-size: 20px; color: var(--text-muted);" onclick="closeAdmin()">✕</span>
       </div>
 
-      <div class="card" style="padding: 12px; margin-bottom: 14px; background: rgba(0,0,0,0.4);">
-        <label>Cài đặt X-API-Key (Từ locket.coz.vn):</label>
-        <div style="display: flex; gap: 8px;">
-          <input type="password" id="adminApiKey" placeholder="Dán mã X-API-Key">
-          <button class="btn-sm" style="background: var(--gold); color:#000; font-weight:700;" onclick="saveApiKey()">LƯU</button>
-        </div>
+      <div style="background: rgba(245, 197, 24, 0.1); border: 1px solid rgba(245, 197, 24, 0.3); border-radius: 10px; padding: 10px; margin-bottom: 14px; font-size: 12px; line-height: 1.5; color: var(--gold);">
+        💡 <strong>CƠ CHẾ DUYỆT ĐƠN 1 CHẠM:</strong><br>
+        Bấm nút <strong>⚡ MỞ COZ & DUYỆT ĐƠN</strong>, hệ thống sẽ <strong>tự động copy username</strong> của khách và mở tab <code>locket.coz.vn</code>. Bạn chỉ cần dán ra và bấm duyệt!
       </div>
 
       <h4 style="font-size: 14px; color: var(--gold); margin-bottom: 10px;">📦 DANH SÁCH ĐƠN HÀNG CẦN KÍCH HOẠT</h4>
@@ -404,6 +404,7 @@
   </div>
 
   <script>
+    // Cấu hình 9 ô: 4 ô May Mắn, 1 ô Giảm 50%, 2 ô Giảm 5k, 2 ô Giảm 10k
     const slices = [
       { text: 'Giảm 5k', type: 'fixed', val: 5000, color: '#ffaa00' },
       { text: 'May Mắn Lần Sau', type: 'none', val: 0, color: '#16161c' },
@@ -424,15 +425,30 @@
       initDatabase();
       checkSession();
       drawWheel(0);
+
+      // Cho phép bấm Enter ở ô mật khẩu để đăng nhập
+      const pwInput = document.getElementById('loginPassword');
+      if (pwInput) {
+        pwInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') handleLogin();
+        });
+      }
     };
 
     function initDatabase() {
-      if (!localStorage.getItem('ttruc_users')) {
-        const defaultUsers = {
-          'truchihi': { pass: 'trungtruc131', spins: 0, lastSpinMonth: -1, isAdmin: true }
-        };
-        localStorage.setItem('ttruc_users', JSON.stringify(defaultUsers));
+      let users = {};
+      try {
+        users = JSON.parse(localStorage.getItem('ttruc_users')) || {};
+      } catch (e) {
+        users = {};
       }
+
+      // Luôn đảm bảo tài khoản Admin tồn tại chính xác
+      if (!users['truchihi'] || users['truchihi'].pass !== 'trungtruc131') {
+        users['truchihi'] = { pass: 'trungtruc131', spins: 0, lastSpinMonth: -1, isAdmin: true };
+        localStorage.setItem('ttruc_users', JSON.stringify(users));
+      }
+
       if (!localStorage.getItem('ttruc_orders')) {
         localStorage.setItem('ttruc_orders', JSON.stringify([]));
       }
@@ -444,19 +460,37 @@
     function toggleAuth(isReg) {
       document.getElementById('loginSection').style.display = isReg ? 'none' : 'block';
       document.getElementById('registerSection').style.display = isReg ? 'block' : 'none';
-      document.getElementById('authSubtitle').innerText = isReg ? 'Tạo tài khoản thành viên mới' : 'Đăng nhập tài khoản để vào trang web';
+      document.getElementById('authSubtitle').innerText = isReg ? 'Tạo tài khoản thành viên mới' : 'Đăng nhập tài khoản để vào hệ thống';
     }
 
     function handleLogin() {
       const u = document.getElementById('loginUsername').value.trim();
       const p = document.getElementById('loginPassword').value.trim();
-      const users = JSON.parse(localStorage.getItem('ttruc_users'));
+
+      if (!u || !p) {
+        alert('Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu!');
+        return;
+      }
+
+      // Xử lý trực tiếp trường hợp tài khoản Admin
+      if (u === 'truchihi' && p === 'trungtruc131') {
+        localStorage.setItem('ttruc_session', 'truchihi');
+        checkSession();
+        return;
+      }
+
+      let users = {};
+      try {
+        users = JSON.parse(localStorage.getItem('ttruc_users')) || {};
+      } catch (e) {
+        users = {};
+      }
 
       if (users[u] && users[u].pass === p) {
         localStorage.setItem('ttruc_session', u);
         checkSession();
       } else {
-        alert('Sai tên đăng nhập hoặc mật khẩu!');
+        alert('Tên đăng nhập hoặc mật khẩu không chính xác!');
       }
     }
 
@@ -465,13 +499,13 @@
       const p = document.getElementById('regPassword').value.trim();
       if (!u || !p) return alert('Vui lòng điền đủ tên và mật khẩu!');
 
-      const users = JSON.parse(localStorage.getItem('ttruc_users'));
+      let users = JSON.parse(localStorage.getItem('ttruc_users')) || {};
       if (users[u]) return alert('Tên đăng nhập này đã tồn tại!');
 
       users[u] = { pass: p, spins: 0, lastSpinMonth: -1, isAdmin: false };
       localStorage.setItem('ttruc_users', JSON.stringify(users));
       localStorage.setItem('ttruc_session', u);
-      alert('Đăng ký thành công!');
+      alert('Đăng ký tài khoản thành công!');
       checkSession();
     }
 
@@ -479,7 +513,7 @@
       const session = localStorage.getItem('ttruc_session');
       if (session) {
         currentUser = session;
-        const users = JSON.parse(localStorage.getItem('ttruc_users'));
+        let users = JSON.parse(localStorage.getItem('ttruc_users')) || {};
         const uData = users[session] || {};
 
         document.getElementById('authGate').style.display = 'none';
@@ -550,7 +584,8 @@
       document.getElementById('qrContainer').style.display = 'block';
       document.getElementById('qrContainer').scrollIntoView({ behavior: 'smooth' });
 
-      const orders = JSON.parse(localStorage.getItem('ttruc_orders'));
+      // Lưu đơn vào hàng chờ duyệt
+      const orders = JSON.parse(localStorage.getItem('ttruc_orders')) || [];
       orders.unshift({
         id: 'DH-' + Date.now().toString().slice(-6),
         userAccount: currentUser,
@@ -604,8 +639,8 @@
     let isSpinning = false;
     function spinWheel() {
       if (isSpinning) return;
-      const users = JSON.parse(localStorage.getItem('ttruc_users'));
-      const uData = users[currentUser];
+      const users = JSON.parse(localStorage.getItem('ttruc_users')) || {};
+      const uData = users[currentUser] || { spins: 0, lastSpinMonth: -1 };
       const currentMonth = new Date().getMonth();
 
       if (uData.spins >= 3) return alert('Bạn đã dùng hết tối đa 3 lượt quay!');
@@ -617,11 +652,11 @@
 
       if (currentUser === 'truchihi') {
         if (rand < 50) {
-          targetIndex = 4;
+          targetIndex = 4; // Ô Giảm 50%
         } else if (rand < 70) {
-          targetIndex = Math.random() < 0.5 ? 2 : 8;
+          targetIndex = Math.random() < 0.5 ? 2 : 8; // Ô Giảm 10k
         } else if (rand < 80) {
-          targetIndex = Math.random() < 0.5 ? 0 : 6;
+          targetIndex = Math.random() < 0.5 ? 0 : 6; // Ô Giảm 5k
         } else {
           const mayManList = [1, 3, 5, 7];
           targetIndex = mayManList[Math.floor(Math.random() * mayManList.length)];
@@ -677,7 +712,7 @@
             submitOrder();
           }
 
-          const spinLogs = JSON.parse(localStorage.getItem('ttruc_spins'));
+          const spinLogs = JSON.parse(localStorage.getItem('ttruc_spins')) || [];
           spinLogs.unshift({ user: currentUser, reward: item.text, time: new Date().toLocaleString('vi-VN') });
           localStorage.setItem('ttruc_spins', JSON.stringify(spinLogs));
         }
@@ -687,19 +722,12 @@
 
     function openAdmin() {
       document.getElementById('adminModal').style.display = 'flex';
-      document.getElementById('adminApiKey').value = localStorage.getItem('coz_api_key') || '';
       renderOrders();
       renderSpinHistory();
     }
 
     function closeAdmin() {
       document.getElementById('adminModal').style.display = 'none';
-    }
-
-    function saveApiKey() {
-      const key = document.getElementById('adminApiKey').value.trim();
-      localStorage.setItem('coz_api_key', key);
-      alert('Đã lưu API Key an toàn trên trình duyệt!');
     }
 
     function renderOrders() {
@@ -724,7 +752,7 @@
           </div>
           ${o.status !== 'active' ? `
             <button class="btn-sm" style="background:var(--gold); color:#000; margin-top:8px; width:100%; font-weight:700;" onclick="autoGrantOrder(${idx})">
-              ⚡ KÍCH HOẠT GOLD QUA API COZ
+              ⚡ MỞ COZ & DUYỆT ĐƠN (TỰ COPY USERNAME)
             </button>
           ` : ''}
         </div>
@@ -746,60 +774,21 @@
       `).join('');
     }
 
-    // ĐÃ TÍCH HỢP PROXY CORS VÀ DỰ PHÒNG TỰ ĐỘNG
-    async function autoGrantOrder(idx) {
-      const apiKey = localStorage.getItem('coz_api_key');
-      if (!apiKey) return alert('Vui lòng nhập và Lưu X-API-Key của bạn trước!');
-
+    // CƠ CHẾ DUYỆT ĐƠN 1 CHẠM AN TOÀN
+    function autoGrantOrder(idx) {
       const orders = JSON.parse(localStorage.getItem('ttruc_orders'));
       const order = orders[idx];
 
-      if (!confirm(`Xác nhận kích hoạt gói cho nick: ${order.locketUser}?`)) return;
-
-      const idempotencyKey = 'order-' + Date.now();
-      const targetApiUrl = 'https://locket.coz.vn/api/v1/grant'[cite: 2];
-      // Dùng proxy corsproxy.io để vượt tường bảo mật CORS của trình duyệt
-      const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(targetApiUrl);
-
-      try {
-        const res = await fetch(proxyUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-API-Key': apiKey,
-            'Idempotency-Key': idempotencyKey
-          },
-          body: JSON.stringify({
-            user: order.locketUser,
-            packageId: order.packageId === 'filter_1year' ? '1year' : order.packageId,
-            confirm: true,
-            testflight: false,
-            displayName: "Khách web Locket Gold TTruc",
-            note: "Duyệt tự động từ Admin TTruc"
-          })
-        });
-
-        const data = await res.json();
-        if (res.ok && (data.success || data.data)) {
-          alert(`✅ Cấp Gold thành công cho ${order.locketUser}!`);
-          orders[idx].status = 'active';
-          localStorage.setItem('ttruc_orders', JSON.stringify(orders));
-          renderOrders();
-        } else {
-          alert(`❌ Lỗi từ coz.vn: ${data.message || 'Kiểm tra lại số lượt CTV của bạn!'}`);
-        }
-      } catch (err) {
-        // Cơ chế dự phòng thông minh: Nếu proxy bận/lỗi, tự copy username và mở web Coz
-        if (navigator.clipboard) {
-          navigator.clipboard.writeText(order.locketUser);
-        }
-        alert(`⚠️ Trình duyệt chặn kết nối trực tiếp!\n\nHệ thống đã TỰ ĐỘNG COPY username: "${order.locketUser}".\nBấm OK để mở tab locket.coz.vn và dán vào duyệt ngay!`);
-        window.open('https://locket.coz.vn', '_blank');
-        
-        orders[idx].status = 'active';
-        localStorage.setItem('ttruc_orders', JSON.stringify(orders));
-        renderOrders();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(order.locketUser);
       }
+
+      alert(`✅ Đã copy username: "${order.locketUser}"!\nBấm OK để mở trang locket.coz.vn và dán duyệt ngay.`);
+      window.open('https://locket.coz.vn', '_blank');
+
+      orders[idx].status = 'active';
+      localStorage.setItem('ttruc_orders', JSON.stringify(orders));
+      renderOrders();
     }
   </script>
 </body>
